@@ -1,7 +1,3 @@
-+++
-archetype = "chapter"
-title = "Cyber Mice"
-weight = 1
-+++
+# Cyber Mice
 
 Unofficial documentation for the team.
