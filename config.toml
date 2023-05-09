@@ -1,0 +1,7 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'cybermice'
+theme = 'relearn'
+[params]
+  # Change default color scheme with a variant one.
+  themeVariant = [ "neon", "relearn-dark", "relearn-light", "relearn-bright", "red", "green", "blue", "learn" ]

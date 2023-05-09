@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Lab on cybermice</title>
+    <link>http://example.org/thelab/index.html</link>
+    <description>Recent content in The Lab on cybermice</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 May 2023 17:33:01 -0500</lastBuildDate><atom:link href="http://example.org/thelab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Design</title>
+      <link>http://example.org/thelab/setup/design/index.html</link>
+      <pubDate>Mon, 08 May 2023 17:27:12 -0500</pubDate>
+      <guid>http://example.org/thelab/setup/design/index.html</guid>
+      <description>The design of the lab is intended to simulate a slice of a commercial network. VMWare Workstation Pro gives us the L1 virtualization. We use a VyOS VM for switching and routing and create a separate subnet for each type of device: User (Windows 11), Attacker (Kali), Server (Windows Server 2019), and IDS (Security Onion).
+Network Map flowchart TD A([fa:fa-cloud Internet/Host]) --- |10.0.0.0/24| B{fa:fa-arrows VyOS} B ---|10.0.1.0/24| C[fa:fa-laptop Win11] B ---|10.</description>
+    </item>
+    <item>
+      <title>Vmware Workstation</title>
+      <link>http://example.org/thelab/setup/vmware_workstation/index.html</link>
+      <pubDate>Mon, 08 May 2023 17:31:33 -0500</pubDate>
+      <guid>http://example.org/thelab/setup/vmware_workstation/index.html</guid>
+      <description>First, we need to configure VMWare Workstation. These instructions are written for Workstation 15.5 Pro. Paths and names are subject to change in future versions. The only component that must be addressed is creating the individual networks.
+Edit -&amp;gt; Virtual Network Editor Change Settings (bottom right) Add Network&amp;hellip; Host-Only Uncheck Connect a host virtual adapter to this network Uncheck Use local DHCP service to distribute IP address to VMs Subnet IP: 10.</description>
+    </item>
+    <item>
+      <title>Creating the VMs</title>
+      <link>http://example.org/thelab/setup/creating_the_vms/index.html</link>
+      <pubDate>Mon, 08 May 2023 17:30:22 -0500</pubDate>
+      <guid>http://example.org/thelab/setup/creating_the_vms/index.html</guid>
+      <description>VyOS VyOS is the router for this lab, but will also function like a switch. As a result, the VM will require 6 NICs. Additionally, it will be mirroring all network traffic to the Security Onion monitoring port, so it will need more memory than normal to ensure packets aren&amp;rsquo;t dropped.
+File -&amp;gt; New Virtual Machine&amp;hellip; Custom (advanced) -&amp;gt; Next &amp;gt; Hardware compatibility: Workstation 15.x -&amp;gt; Next &amp;gt; Installer disc image file (iso): vyos-rolling-latest.</description>
+    </item>
+    <item>
+      <title>Vyos</title>
+      <link>http://example.org/thelab/setup/vyos/index.html</link>
+      <pubDate>Mon, 08 May 2023 17:30:37 -0500</pubDate>
+      <guid>http://example.org/thelab/setup/vyos/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows 11</title>
+      <link>http://example.org/thelab/setup/win11/index.html</link>
+      <pubDate>Mon, 08 May 2023 17:31:46 -0500</pubDate>
+      <guid>http://example.org/thelab/setup/win11/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kali</title>
+      <link>http://example.org/thelab/setup/kali/index.html</link>
+      <pubDate>Mon, 08 May 2023 17:32:39 -0500</pubDate>
+      <guid>http://example.org/thelab/setup/kali/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows Server 2019</title>
+      <link>http://example.org/thelab/setup/ws19/index.html</link>
+      <pubDate>Mon, 08 May 2023 17:32:48 -0500</pubDate>
+      <guid>http://example.org/thelab/setup/ws19/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security Onion</title>
+      <link>http://example.org/thelab/setup/so/index.html</link>
+      <pubDate>Mon, 08 May 2023 17:33:01 -0500</pubDate>
+      <guid>http://example.org/thelab/setup/so/index.html</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
