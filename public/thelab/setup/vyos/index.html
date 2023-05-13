@@ -6,21 +6,21 @@
     <meta name="generator" content="Hugo 0.111.3">
     <meta name="generator" content="Relearn 5.12.6+tip">
     <meta name="description" content="">
-    <title>Vyos :: cybermice</title>
-    <link href="/images/favicon.png?1683603103" rel="icon" type="image/png">
+    <title>VyOS :: cybermice</title>
+    <link href="/images/favicon.png?1683996747" rel="icon" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1683603103" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1683603103" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1683603103" rel="stylesheet">
-    <link href="/css/auto-complete.css?1683603103" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1683603103" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1683603103" rel="stylesheet">
-    <link href="/css/fonts.css?1683603103" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1683603103" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1683603103" rel="stylesheet">
-    <link href="/css/theme-neon.css?1683603103" rel="stylesheet" id="variant-style">
-    <link href="/css/variant.css?1683603103" rel="stylesheet">
-    <link href="/css/print.css?1683603103" rel="stylesheet" media="print">
-    <link href="/css/ie.css?1683603103" rel="stylesheet">
-    <script src="/js/url.js?1683603103"></script>
-    <script src="/js/variant.js?1683603103"></script>
+    <link href="/css/fontawesome-all.min.css?1683996747" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1683996747" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1683996747" rel="stylesheet">
+    <link href="/css/auto-complete.css?1683996747" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1683996747" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1683996747" rel="stylesheet">
+    <link href="/css/fonts.css?1683996747" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1683996747" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1683996747" rel="stylesheet">
+    <link href="/css/theme-neon.css?1683996747" rel="stylesheet" id="variant-style">
+    <link href="/css/variant.css?1683996747" rel="stylesheet">
+    <link href="/css/print.css?1683996747" rel="stylesheet" media="print">
+    <link href="/css/ie.css?1683996747" rel="stylesheet">
+    <script src="/js/url.js?1683996747"></script>
+    <script src="/js/variant.js?1683996747"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -54,11 +54,21 @@
             <span id="sidebar-toggle-span">
               <a href="#" id="sidebar-toggle" class="topbar-link" title='Menu (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
             </span>
+            <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">cybermice</span></a><meta itemprop="position" content="1"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/thelab/index.html"><span itemprop="name">The Lab</span></a><meta itemprop="position" content="2"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Vyos</span><meta itemprop="position" content="3"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">VyOS</span><meta itemprop="position" content="3"></li>
             </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="toc-wrapper"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#os-installation">OS Installation</a></li>
+    <li><a href="#router-configuration">Router Configuration</a></li>
+  </ul>
+</nav>
+            </div>
           </div>
         </div>
       </nav>
@@ -67,8 +77,131 @@
           <div id="head-tags">
           </div>
           <article class="default">
-<h1 id="vyos">Vyos</h1>
+<h1 id="vyos">VyOS</h1>
 
+<p>The initial setup of VyOS is very simple. When booting up, the ISO just boots into a live environment. We&rsquo;ll install the OS from within the live environment, and use all the defaults. Once installed and rebooted, we&rsquo;ll confiugre the routing.</p>
+<h2 id="os-installation">OS Installation</h2>
+<ol>
+<li>Boot into the live environment. This will take a couple minutes</li>
+<li>Log in. Username and password are <code>vyos</code>.</li>
+<li><code>install image</code></li>
+<li>Enter</li>
+<li>Enter</li>
+<li>Enter</li>
+<li><code>yes</code></li>
+<li>Enter</li>
+<li>Enter</li>
+<li>Enter</li>
+<li>Enter</li>
+<li>Use <code>vyos</code> for the password.</li>
+<li>Enter</li>
+<li><code>reboot</code></li>
+</ol>
+<h2 id="router-configuration">Router Configuration</h2>
+<p>To make this easier, we can edit the network configuration of VMnet2 to connect the host to the network, and then enter the following to SSH into the VM:</p>
+<ol>
+<li>Log in as <code>vyos</code></li>
+<li><code>configure</code></li>
+<li><code>set service ssh</code></li>
+<li><code>set interface ethernet eth0 address 10.0.0.250/24</code></li>
+<li><code>commit</code></li>
+<li><code>save</code></li>
+</ol>
+<p>We can now open a terminal window and ssh in to do the rest of the configuration (<code>ssh vyos@10.0.0.250</code>).</p>
+<ol>
+<li>Log in as <code>vyos</code></li>
+<li><code>configure</code></li>
+<li>Enter the following:
+<em>firewall rules</em></li>
+</ol>
+<pre tabindex="0"><code>set firewall group network-group OUTERWORLD network 10.0.0.0/24
+set firewall name OUTERWORLD default-action accept
+set firewall name OUTERWORLD enable-default-log
+set firewall name OUTERWORLD rule 100 action accept
+set firewall name OUTERWORLD rule 100 destination group network-group OUTERWORLD
+set firewall name OUTERWORLD rule 100 source group network-group OUTERWORLD
+set firewall name OUTERWORLD rule 100 protocol all
+set firewall name OUTERWORLD rule 100 state new enable
+
+set firewall group network-group USERLAND network 10.0.1.0/24
+set firewall name USERLAND default-action accept
+set firewall name USERLAND enable-default-log
+set firewall name USERLAND rule 100 action accept
+set firewall name USERLAND rule 100 destination group network-group USERLAND
+set firewall name USERLAND rule 100 source group network-group USERLAND
+set firewall name USERLAND rule 100 protocol all
+set firewall name USERLAND rule 100 state new enable
+
+set firewall group network-group ABYSS network 10.0.2.0/24
+set firewall name ABYSS default-action accept
+set firewall name ABYSS enable-default-log
+set firewall name ABYSS rule 100 action accept
+set firewall name ABYSS rule 100 destination group network-group ABYSS
+set firewall name ABYSS rule 100 source group network-group ABYSS
+set firewall name ABYSS rule 100 protocol all
+set firewall name ABYSS rule 100 state new enable
+
+set firewall group network-group AXIS network 10.0.3.0/24
+set firewall name AXIS default-action accept
+set firewall name AXIS enable-default-log
+set firewall name AXIS rule 100 action accept
+set firewall name AXIS rule 100 destination group network-group AXIS
+set firewall name AXIS rule 100 source group network-group AXIS
+set firewall name AXIS rule 100 protocol all
+set firewall name AXIS rule 100 state new enable
+
+set firewall group network-group OVERWATCH network 10.0.4.0/24
+set firewall name OVERWATCH default-action accept
+set firewall name OVERWATCH enable-default-log
+set firewall name OVERWATCH rule 100 action accept
+set firewall name OVERWATCH rule 100 destination group network-group OVERWATCH
+set firewall name OVERWATCH rule 100 source group network-group OVERWATCH
+set firewall name OVERWATCH rule 100 protocol all
+set firewall name OVERWATCH rule 100 state new enable
+</code></pre><p><em>interface setup</em></p>
+<pre tabindex="0"><code>set interface ethernet eth0 address 10.0.0.250/24
+set interface ethernet eth0 mirror egress eth5
+set interface ethernet eth0 mirror ingress eth5
+
+set interface ethernet eth1 address 10.0.1.1/24
+set interface ethernet eth1 mirror egress eth5
+set interface ethernet eth1 mirror ingress eth5
+set service dhcp-server shared-network-name USERLAND subnet 10.0.1.0/24 default-router 10.0.1.1
+set service dhcp-server shared-network-name USERLAND subnet 10.0.1.0/24 domain-name cybermice.dev
+set service dhcp-server shared-network-name USERLAND subnet 10.0.1.0/24 lease 86400
+set service dhcp-server shared-network-name USERLAND subnet 10.0.1.0/24 range 0 start 10.0.1.8
+set service dhcp-server shared-network-name USERLAND subnet 10.0.1.0/24 range 0 stop 10.0.1.247
+
+set interface ethernet eth2 address 10.0.2.1/24
+set interface ethernet eth2 mirror egress eth5
+set interface ethernet eth2 mirror ingress eth5
+set service dhcp-server shared-network-name ABYSS subnet 10.0.2.0/24 default-router 10.0.2.1
+set service dhcp-server shared-network-name ABYSS subnet 10.0.2.0/24 domain-name cybermice.dev
+set service dhcp-server shared-network-name ABYSS subnet 10.0.2.0/24 lease 86400
+set service dhcp-server shared-network-name ABYSS subnet 10.0.2.0/24 range 0 start 10.0.2.8
+set service dhcp-server shared-network-name ABYSS subnet 10.0.2.0/24 range 0 stop 10.0.2.247
+
+set interface ethernet eth3 address 10.0.3.1/24
+set interface ethernet eth3 mirror egress eth5
+set interface ethernet eth3 mirror ingress eth5
+set service dhcp-server shared-network-name AXIS subnet 10.0.3.0/24 default-router 10.0.3.1
+set service dhcp-server shared-network-name AXIS subnet 10.0.3.0/24 domain-name cybermice.dev
+set service dhcp-server shared-network-name AXIS subnet 10.0.3.0/24 lease 86400
+set service dhcp-server shared-network-name AXIS subnet 10.0.3.0/24 range 0 start 10.0.3.8
+set service dhcp-server shared-network-name AXIS subnet 10.0.3.0/24 range 0 stop 10.0.3.247
+
+set interface ethernet eth4 address 10.0.4.1/24
+set interface ethernet eth4 mirror egress eth5
+set interface ethernet eth4 mirror ingress eth5
+set service dhcp-server shared-network-name OVERWATCH subnet 10.0.4.0/24 default-router 10.0.4.1
+set service dhcp-server shared-network-name OVERWATCH subnet 10.0.4.0/24 domain-name cybermice.dev
+set service dhcp-server shared-network-name OVERWATCH subnet 10.0.4.0/24 lease 86400
+set service dhcp-server shared-network-name OVERWATCH subnet 10.0.4.0/24 range 0 start 10.0.4.8
+set service dhcp-server shared-network-name OVERWATCH subnet 10.0.4.0/24 range 0 stop 10.0.4.247
+set service dhcp-server shared-network-name OVERWATCH subnet 10.0.4.0/24 static-mapping SECURITYONION ip-address 10.0.4.5
+set service dhcp-server shared-network-name OVERWATCH subnet 10.0.4.0/24 static-mapping SECURITYONION mac-address xx:xx:xx:xx:xx:xx
+</code></pre><p>The mac address can be acquired by entering the settings of the security onion vm, selecting Network Adapter, clicking Advanced&hellip;, and clicking Generate.</p>
+<p>This configuration will get dhcp working for all the devices, <em>including</em> for the management port of the security onion (which we&rsquo;ve set a reservation for), and also set each port as the default gateway for its network.</p>
 
             <footer class="footline">
             </footer>
@@ -148,12 +281,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1683603103" defer></script>
-        <script src="/js/lunr/lunr.min.js?1683603103" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1683603103" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1683603103" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1683603103" defer></script>
-        <script src="/js/search.js?1683603103" defer></script>
+        <script src="/js/auto-complete.js?1683996747" defer></script>
+        <script src="/js/lunr/lunr.min.js?1683996747" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1683996747" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1683996747" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1683996747" defer></script>
+        <script src="/js/search.js?1683996747" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -166,7 +299,7 @@
           <li data-nav-id="/thelab/setup/design/index.html" class=""><a class="padding" href="/thelab/setup/design/index.html">Design</a></li>
           <li data-nav-id="/thelab/setup/vmware_workstation/index.html" class=""><a class="padding" href="/thelab/setup/vmware_workstation/index.html">Vmware Workstation</a></li>
           <li data-nav-id="/thelab/setup/creating_the_vms/index.html" class=""><a class="padding" href="/thelab/setup/creating_the_vms/index.html">Creating the VMs</a></li>
-          <li data-nav-id="/thelab/setup/vyos/index.html" class="active"><a class="padding" href="/thelab/setup/vyos/index.html">Vyos</a></li>
+          <li data-nav-id="/thelab/setup/vyos/index.html" class="active"><a class="padding" href="/thelab/setup/vyos/index.html">VyOS</a></li>
           <li data-nav-id="/thelab/setup/win11/index.html" class=""><a class="padding" href="/thelab/setup/win11/index.html">Windows 11</a></li>
           <li data-nav-id="/thelab/setup/kali/index.html" class=""><a class="padding" href="/thelab/setup/kali/index.html">Kali</a></li>
           <li data-nav-id="/thelab/setup/ws19/index.html" class=""><a class="padding" href="/thelab/setup/ws19/index.html">Windows Server 2019</a></li>
@@ -217,8 +350,8 @@
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1683603103" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1683603103" defer></script>
-    <script src="/js/theme.js?1683603103" defer></script>
+    <script src="/js/clipboard.min.js?1683996747" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1683996747" defer></script>
+    <script src="/js/theme.js?1683996747" defer></script>
   </body>
 </html>
