@@ -7,20 +7,20 @@
     <meta name="generator" content="Relearn 5.12.6+tip">
     <meta name="description" content="">
     <title>Windows 11 :: cybermice</title>
-    <link href="/images/favicon.png?1683996747" rel="icon" type="image/png">
+    <link href="/images/favicon.png?1684707341" rel="icon" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1683996747" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1683996747" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1683996747" rel="stylesheet">
-    <link href="/css/auto-complete.css?1683996747" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1683996747" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1683996747" rel="stylesheet">
-    <link href="/css/fonts.css?1683996747" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1683996747" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1683996747" rel="stylesheet">
-    <link href="/css/theme-neon.css?1683996747" rel="stylesheet" id="variant-style">
-    <link href="/css/variant.css?1683996747" rel="stylesheet">
-    <link href="/css/print.css?1683996747" rel="stylesheet" media="print">
-    <link href="/css/ie.css?1683996747" rel="stylesheet">
-    <script src="/js/url.js?1683996747"></script>
-    <script src="/js/variant.js?1683996747"></script>
+    <link href="/css/fontawesome-all.min.css?1684707341" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1684707341" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1684707341" rel="stylesheet">
+    <link href="/css/auto-complete.css?1684707341" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1684707341" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1684707341" rel="stylesheet">
+    <link href="/css/fonts.css?1684707341" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1684707341" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1684707341" rel="stylesheet">
+    <link href="/css/theme-neon.css?1684707341" rel="stylesheet" id="variant-style">
+    <link href="/css/variant.css?1684707341" rel="stylesheet">
+    <link href="/css/print.css?1684707341" rel="stylesheet" media="print">
+    <link href="/css/ie.css?1684707341" rel="stylesheet">
+    <script src="/js/url.js?1684707341"></script>
+    <script src="/js/variant.js?1684707341"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -54,11 +54,26 @@
             <span id="sidebar-toggle-span">
               <a href="#" id="sidebar-toggle" class="topbar-link" title='Menu (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
             </span>
+            <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">cybermice</span></a><meta itemprop="position" content="1"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/thelab/index.html"><span itemprop="name">The Lab</span></a><meta itemprop="position" content="2"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Windows 11</span><meta itemprop="position" content="3"></li>
             </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="toc-wrapper"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#os-installation">OS Installation</a></li>
+    <li><a href="#os-configuration">OS Configuration</a></li>
+    <li><a href="#joining-the-domain">Joining the Domain</a>
+      <ul>
+        <li><a href="#under-construction">Under Construction</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+            </div>
           </div>
         </div>
       </nav>
@@ -69,6 +84,57 @@
           <article class="default">
 <h1 id="windows-11">Windows 11</h1>
 
+<p>We&rsquo;re mostly using the defaults for installing this Windows 11 machine. There are some extra steps we&rsquo;ll have to take since we&rsquo;ll be installing it without an internet connection, but otherwise any options in the installation process are purely for flavor. Eventually we&rsquo;ll be joining this machine to a domain; those directions are included at the end of this page, but will have to wait until after we&rsquo;ve created the domain controller for the lab.</p>
+<h2 id="os-installation">OS Installation</h2>
+<ol>
+<li>Boot up the VM. When selecting the Win11 VM, VMware Workstation may request a password; enter the password created in the Creating the VMs page and we can power it on.</li>
+<li>Quickly click into the VM and press a key to boot into the CD.</li>
+<li><code>Next</code></li>
+<li><code>Install Now</code></li>
+<li><code>I don't have a product key</code></li>
+<li>Select &ldquo;Windows 11 Pro for Workstations&rdquo; and click <code>Next</code></li>
+<li>Click the check box at the bottom and then click <code>Next</code></li>
+<li><code>Custom: Install Windows only (advanced)</code></li>
+<li><code>New</code> -&gt; <code>Apply</code> -&gt; <code>OK</code> -&gt; <code>Next</code></li>
+<li><code>Restart now</code></li>
+<li>When it finishes rebooting, press <code>Shift+F10</code></li>
+<li><code>oobe\bypassnro</code></li>
+<li><code>Yes</code></li>
+<li><code>Yes</code></li>
+<li><code>Skip</code></li>
+<li><code>I don't have internet</code></li>
+<li><code>Continue with limited setup</code></li>
+<li>Enter a name and click <code>Next</code></li>
+<li>Enter a password and click <code>Next</code></li>
+<li>Re-enter the password and click <code>Next</code></li>
+<li>For the security questions, we can just select the top question and enter gibberish. If the password is forgotten, we can just re-install the OS.</li>
+<li>Turn off all the switches on the privacy settings page and click <code>Next</code></li>
+</ol>
+<h2 id="os-configuration">OS Configuration</h2>
+<p>For this portion, we will be disabling all the security controls on the VM. This is only for the initial attacks; we will be hardening the VM as part of later training, but the Win11 machine will be initially vulnerable.</p>
+<ol>
+<li>Open Powershell as an administrator:
+<ol>
+<li>Press <code>Win</code></li>
+<li>Type <code>Powershell</code></li>
+<li>Press `Ctrl+Shift+Enter</li>
+<li>Click <code>Yes</code></li>
+</ol>
+</li>
+<li><code>netsh advfirewall set allprofiles state off</code></li>
+<li><code>set-mppreference -disablerealtimemonitoring $true</code></li>
+<li><code>gpedit</code>
+<ol>
+<li>Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Microsoft Defender Antivirus</li>
+<li>Double-click &ldquo;Turn off Microsoft Defender Antivirus&rdquo;</li>
+<li>Select &ldquo;Enabled&rdquo; and click <code>Apply</code> and <code>OK</code></li>
+</ol>
+</li>
+<li><code>shutdown /r</code></li>
+</ol>
+<p>The Windows Firewall and Microsoft Defender are now disabled.</p>
+<h2 id="joining-the-domain">Joining the Domain</h2>
+<h3 id="under-construction">Under Construction</h3>
 
             <footer class="footline">
             </footer>
@@ -148,12 +214,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1683996747" defer></script>
-        <script src="/js/lunr/lunr.min.js?1683996747" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1683996747" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1683996747" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1683996747" defer></script>
-        <script src="/js/search.js?1683996747" defer></script>
+        <script src="/js/auto-complete.js?1684707341" defer></script>
+        <script src="/js/lunr/lunr.min.js?1684707341" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1684707341" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1684707341" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1684707341" defer></script>
+        <script src="/js/search.js?1684707341" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -217,8 +283,8 @@
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1683996747" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1683996747" defer></script>
-    <script src="/js/theme.js?1683996747" defer></script>
+    <script src="/js/clipboard.min.js?1684707341" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1684707341" defer></script>
+    <script src="/js/theme.js?1684707341" defer></script>
   </body>
 </html>

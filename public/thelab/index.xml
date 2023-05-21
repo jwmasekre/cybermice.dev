@@ -44,7 +44,7 @@ OS Installation Boot into the live environment. This will take a couple minutes 
       <link>http://example.org/thelab/setup/win11/index.html</link>
       <pubDate>Mon, 08 May 2023 17:31:46 -0500</pubDate>
       <guid>http://example.org/thelab/setup/win11/index.html</guid>
-      <description></description>
+      <description>We&amp;rsquo;re mostly using the defaults for installing this Windows 11 machine. There are some extra steps we&amp;rsquo;ll have to take since we&amp;rsquo;ll be installing it without an internet connection, but otherwise any options in the installation process are purely for flavor. Eventually we&amp;rsquo;ll be joining this machine to a domain; those directions are included at the end of this page, but will have to wait until after we&amp;rsquo;ve created the domain controller for the lab.</description>
     </item>
     <item>
       <title>Kali</title>
