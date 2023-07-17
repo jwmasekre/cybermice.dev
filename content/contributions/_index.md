@@ -1,8 +1,9 @@
----
-title: "Making Contributions"
-date: 2023-07-17T08:00:00-06:00
-weight: 10
----
++++
+archetype = "chapter"
+title = "Making Contributions"
+weight = 0
++++
+
 
 Since we are using GitHub for hosting and updating the site, we can leverage the functionality of Git to allow everyone to make contributions to the site. However, a few rules must be followed for this to continue to be viable as a documentation solution.
 
@@ -33,8 +34,8 @@ Using Git is a little complicated due to the nature of change control. However, 
 5. Index the contribution. `git add --all`
 6. Commit the contribution. `git commit -m "<your description/comment here>"`
 7. Push the contribution. `git push -u origin <yourbranchnamehere>`
-8. Submit the pull request. `git pull-request "your request title"`
-9. Josh will review it, and if accepted then pull it into `master` and then build the page with Hugo.
+8. Submit the pull request. This requires you to go to `https://github.com/jwmasekre/cybermice.dev`, click the branch icon (`master`), and then click `View all branches`. From there, click `New pull request` next to the branch that you created. Change the title to something easy to parse, and leave a comment describing the contribution. Click `Create pull request`.
+9. Josh will review it, and if accepted then pull it into `master` and then build the page with Hugo. Merging will also auto-delete the branch.
 
 ### Submitting to Josh
 
