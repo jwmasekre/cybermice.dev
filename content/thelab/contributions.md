@@ -32,7 +32,7 @@ Using Git is a little complicated due to the nature of change control. However, 
 4. Add your contribution. The markdown documents Hugo uses to generate the static pages is stored in `./content`. If an appropriate category already exists, feel free to place your markdown document in that category's directory. If not, go ahead and create one that you feel is most apt for the contribution. Before it gets pushed we can discuss as a team how to best categorize it.
 5. Index the contribution. `git add --all`
 6. Commit the contribution. `git commit -m "<your description/comment here>"`
-7. Push the contribution. `git push`
+7. Push the contribution. `git push -u origin <yourbranchnamehere>`
 8. Submit the pull request. `git pull-request "your request title"`
 9. Josh will review it, and if accepted then pull it into `master` and then build the page with Hugo.
 
