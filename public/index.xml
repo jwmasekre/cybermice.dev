@@ -6,13 +6,21 @@
     <description>Recent content on cybermice</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Jul 2023 08:00:00 -0600</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 May 2023 17:33:01 -0500</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Lab</title>
       <link>http://example.org/thelab/index.html</link>
-      <pubDate>Mon, 17 Jul 2023 08:00:00 -0600</pubDate>
+      <pubDate>Mon, 08 May 2023 17:33:01 -0500</pubDate>
       <guid>http://example.org/thelab/index.html</guid>
       <description>Build and Configuration of the Cybermice Lab.</description>
+    </item>
+    <item>
+      <title>Making Contributions</title>
+      <link>http://example.org/contributions/index.html</link>
+      <pubDate>Mon, 17 Jul 2023 08:00:00 -0600</pubDate>
+      <guid>http://example.org/contributions/index.html</guid>
+      <description>Since we are using GitHub for hosting and updating the site, we can leverage the functionality of Git to allow everyone to make contributions to the site. However, a few rules must be followed for this to continue to be viable as a documentation solution.
+No internal information. This site is very public. Anybody with the url can navigate here. Therefore, documentation here should be restricted to resources and techniques that can be learned from other publicly available resources.</description>
     </item>
   </channel>
 </rss>
