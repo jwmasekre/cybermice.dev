@@ -34,7 +34,30 @@ To make this easier, we can edit the network configuration of VMnet2 to connect 
 5. `commit`
 6. `save`
 
-We can now open a terminal window and ssh in to do the rest of the configuration (`ssh vyos@10.0.0.250`).
+Note: There may need to be more configuration needed in order to allow ssh to the VyOS box.
+
+*VMware Workstation*
+1. Edit -> Virtual Network Editor
+2. `Change Settings`
+3. Select VMnet2
+4. Check `Connect a host virtual adapter to this network`
+5. `OK`
+
+*Windows*
+1. `Win key` -> `Control Panel`
+2. `Network and Internet`
+3. `Network and Sharing Center`
+4. `Change Adapter Settings`
+5. Right-click `VMware Network Adapter VMnet2` -> Properties
+6. Select Internet Protocol Version 4 (TCP/IPv4) -> `Properties`
+7. Select Use the following IP Address:
+    * IP address: `10.0.0.2`
+    * Subnet mask: `255.255.255.0`
+    * Default gateway: `10.0.0.1`
+8. `OK`
+9. `OK`
+
+We can now open a terminal window and ssh in to do the rest of the configuration (`ssh vyos@10.0.0.250`). T
 
 1. Log in as `vyos`
 2. `configure`
