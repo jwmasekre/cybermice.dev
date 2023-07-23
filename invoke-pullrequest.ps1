@@ -82,6 +82,10 @@ function invoke-pullrequest {
     Write-Host -NoNewline " and follow the instructions at " -ForegroundColor Green
     Write-Host -NoNewline "https://docs.cybermice.dev/contributions/index.html" -ForegroundColor White
     Write-Host " (step 8) to complete the pull request."
+    Write-Host -NoNewLine "Switching to " -ForegroundColor Cyan
+    Write-Host -NoNewline "master" -ForegroundColor White
+    Write-Host " branch and exiting..." -ForegroundColor Cyan
+    git checkout master
 }
 
 # asks if the user wants to switch to master branch 
