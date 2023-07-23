@@ -1,7 +1,7 @@
 +++
 archetype = "chapter"
 title = "The Lab"
-weight = 1
+weight = 2
 +++
 
 Build and Configuration of the Cybermice Lab.

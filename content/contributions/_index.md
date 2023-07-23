@@ -1,7 +1,7 @@
 +++
 archetype = "chapter"
 title = "Making Contributions"
-weight = 0
+weight = 1
 +++
 
 
