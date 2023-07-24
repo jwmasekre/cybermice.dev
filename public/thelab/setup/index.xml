@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>The Lab - Setup on cybermice</title>
+    <title>Setup on cybermice</title>
     <link>http://example.org/thelab/setup/index.html</link>
-    <description>Recent content in The Lab - Setup on cybermice</description>
+    <description>Recent content in Setup on cybermice</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 May 2023 17:33:01 -0500</lastBuildDate><atom:link href="http://example.org/thelab/setup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Jul 2023 16:04:01 -0500</lastBuildDate><atom:link href="http://example.org/thelab/setup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Design</title>
       <link>http://example.org/thelab/setup/design/index.html</link>
@@ -65,6 +65,13 @@ OS Installation Boot into the live environment. This will take a couple minutes 
       <link>http://example.org/thelab/setup/so/index.html</link>
       <pubDate>Mon, 08 May 2023 17:33:01 -0500</pubDate>
       <guid>http://example.org/thelab/setup/so/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Variations</title>
+      <link>http://example.org/thelab/setup/variations/index.html</link>
+      <pubDate>Mon, 24 Jul 2023 16:04:01 -0500</pubDate>
+      <guid>http://example.org/thelab/setup/variations/index.html</guid>
       <description></description>
     </item>
   </channel>

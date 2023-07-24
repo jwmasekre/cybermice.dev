@@ -6,13 +6,13 @@
     <description>Recent content in The Lab on cybermice</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 May 2023 17:33:01 -0500</lastBuildDate><atom:link href="http://example.org/thelab/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Jul 2023 16:04:01 -0500</lastBuildDate><atom:link href="http://example.org/thelab/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>The Lab - Setup</title>
+      <title>Setup</title>
       <link>http://example.org/thelab/setup/index.html</link>
-      <pubDate>Mon, 08 May 2023 17:33:01 -0500</pubDate>
+      <pubDate>Mon, 24 Jul 2023 16:04:01 -0500</pubDate>
       <guid>http://example.org/thelab/setup/index.html</guid>
-      <description>this is a test </description>
+      <description>This section covers the design philosophy of the lab and all installation and configuration requirements for the lab. Variations are encouraged, but if (when) things break, document and contribute your findings so we can all learn from them. See Variations for more information, and don&amp;rsquo;t forget to link to it in the relevant page.</description>
     </item>
   </channel>
 </rss>
