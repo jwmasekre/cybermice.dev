@@ -6,7 +6,8 @@
     <meta name="generator" content="Hugo 0.111.3">
     <meta name="generator" content="Relearn 5.12.6+tip">
     <meta name="description" content="">
-    <title>Creating the VMs :: cybermice</title>
+    <title>The Lab - Setup :: cybermice</title>
+    <link href="/thelab/setup/index.xml" rel="alternate" type="application/rss+xml" title="The Lab - Setup :: cybermice">
     <link href="/images/favicon.png?1690221464" rel="icon" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="/css/fontawesome-all.min.css?1690221464" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1690221464" rel="stylesheet"></noscript>
@@ -38,17 +39,17 @@
       window.variants && variants.init( [ 'neon', 'relearn-dark', 'relearn-light', 'relearn-bright', 'red', 'green', 'blue', 'learn' ] );
     </script>
   </head>
-  <body class="mobile-support html" data-url="/thelab/setup/creating_the_vms/index.html">
+  <body class="mobile-support html" data-url="/thelab/setup/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable">
         <div>
           <div class="navigation">
-            <a class="nav nav-next topbar-link" href="/thelab/setup/vyos/index.html" title="VyOS (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+            <a class="nav nav-next topbar-link" href="/thelab/setup/design/index.html" title="Design (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev topbar-link" href="/thelab/setup/vmware_workstation/index.html" title="Vmware Workstation (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev topbar-link" href="/thelab/index.html" title="The Lab (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -58,142 +59,28 @@
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">cybermice</span></a><meta itemprop="position" content="1"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/thelab/index.html"><span itemprop="name">The Lab</span></a><meta itemprop="position" content="2"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/thelab/setup/index.html"><span itemprop="name">The Lab - Setup</span></a><meta itemprop="position" content="3"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Creating the VMs</span><meta itemprop="position" content="4"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">The Lab - Setup</span><meta itemprop="position" content="3"></li>
             </ol>
           </div>
           <div class="default-animation progress">
             <div class="toc-wrapper"><nav id="TableOfContents">
   <ul>
-    <li><a href="#vyos">VyOS</a></li>
-    <li><a href="#win11">Win11</a></li>
-    <li><a href="#ws19">WS19</a></li>
-    <li><a href="#kali">Kali</a></li>
-    <li><a href="#security-onion">Security Onion</a></li>
+    <li><a href="#this-is-a-test">this is a test</a></li>
   </ul>
 </nav>
             </div>
           </div>
         </div>
       </nav>
-      <main id="body-inner" class="highlightable default" tabindex="-1">
+      <main id="body-inner" class="highlightable chapter narrow" tabindex="-1">
         <div class="flex-block-wrapper">
           <div id="head-tags">
           </div>
-          <article class="default">
-<h1 id="creating-the-vms">Creating the VMs</h1>
+          <article class="chapter">
+<div class="article-subheading">Chapter 2</div>
+<h1 id="the-lab---setup">The Lab - Setup</h1>
 
-<h2 id="vyos">VyOS</h2>
-<p>VyOS is the router for this lab, but will also function like a switch. As a result, the VM will require 6 NICs. Additionally, it will be mirroring all network traffic to the Security Onion monitoring port, so it will need more memory than normal to ensure packets aren&rsquo;t dropped.</p>
-<ol>
-<li>File -&gt; New Virtual Machine&hellip;</li>
-<li>Custom (advanced) -&gt; <code>Next &gt;</code></li>
-<li>Hardware compatibility: Workstation 15.x -&gt; <code>Next &gt;</code></li>
-<li>Installer disc image file (iso): vyos-rolling-latest.iso -&gt; <code>Next &gt;</code></li>
-<li>Linux, Version &ldquo;Other Linux 5.x or later kernel 64-bit&rdquo; -&gt; <code>Next &gt;</code></li>
-<li>Virtual machine name: VyOS -&gt; <code>Next &gt;</code></li>
-<li>Number of processors: 1, Number of cores per processor: 1 -&gt; <code>Next &gt;</code></li>
-<li>Memory for this virtual machine: 4096 -&gt; <code>Next &gt;</code></li>
-<li>Use host-only networking -&gt; <code>Next &gt;</code></li>
-<li>LSI Logic (Recommended) -&gt; <code>Next &gt;</code></li>
-<li>SCSI (Recommended) -&gt; <code>Next &gt;</code></li>
-<li>Create a new virtual disk -&gt; <code>Next &gt;</code></li>
-<li>Maximum disk size (GB): 10, Split virtual disk into multiple files -&gt; <code>Next &gt;</code></li>
-<li><code>Next &gt;</code></li>
-<li><code>Customize Hardware</code></li>
-<li>Network Adapter: Custom: Specific virtual network: VMnet2</li>
-<li>Add&hellip;, Network Adapter</li>
-<li>Network Adapter 2: Custom: Specific virtual network: VMnet3</li>
-<li>Add&hellip;, Network Adapter</li>
-<li>Network Adapter 3: Custom: Specific virtual network: VMnet4</li>
-<li>Add&hellip;, Network Adapter</li>
-<li>Network Adapter 4: Custom: Specific virtual network: VMnet5</li>
-<li>Add&hellip;, Network Adapter</li>
-<li>Network Adapter 5: Custom: Specific virtual network: VMnet6</li>
-<li>Add&hellip;, Network Adapter</li>
-<li>Network Adapter 6: Custom: Specific virtual network: VMnet6</li>
-<li><code>Close</code></li>
-<li><code>Finish</code></li>
-</ol>
-<h2 id="win11">Win11</h2>
-<p>Windows 11 is what we&rsquo;ll use as our end user (read: victim) machine. Windows 11 requires a TPM unless extra steps are taken, and since we want the environment to be reasonably realistic we&rsquo;ll set up a virtual TPM.</p>
-<ol>
-<li>File -&gt; New Virtual Machine&hellip;</li>
-<li>Custom (advanced) -&gt; <code>Next &gt;</code></li>
-<li>Hardware compatibility: Workstation 15.x -&gt; <code>Next &gt;</code></li>
-<li>Installer disc image file (iso): Win11_22H2_English_x64v1.iso -&gt; <code>Next &gt;</code></li>
-<li>Microsoft Windows, Version &ldquo;Windows 10 x64&rdquo; -&gt; <code>Next &gt;</code></li>
-<li>Virtual machine name: Win11 -&gt; <code>Next &gt;</code></li>
-<li>UEFI, Secure Boot -&gt; <code>Next &gt;</code></li>
-<li>Number of processors: 1, Number of cores per processor: 2 -&gt; <code>Next &gt;</code></li>
-<li>Memory for this virtual machine: 4096 -&gt; <code>Next &gt;</code></li>
-<li>Use host-only networking -&gt; <code>Next &gt;</code></li>
-<li>LSI Logic SAS (Recommended) -&gt; <code>Next &gt;</code></li>
-<li>NVME (Recommended) -&gt; <code>Next &gt;</code></li>
-<li>Create a new virtual disk -&gt; <code>Next &gt;</code></li>
-<li>Maximum disk size (GB): 100, Split virtual disk into multiple files -&gt; <code>Next &gt;</code></li>
-<li><code>Next &gt;</code></li>
-<li><code>Customize Hardware</code></li>
-<li>Network Adapter: Custom: Specific virtual network: VMnet3</li>
-<li><code>Close</code></li>
-<li><code>Finish</code></li>
-<li>Right-click Win11 -&gt; Settings&hellip;</li>
-<li>Options tab -&gt; Access Control, <code>Encrypt...</code></li>
-<li>Enter a password (&ldquo;password&rdquo; is perfectly acceptible for this) -&gt; <code>Encrypt</code></li>
-<li>Hardware tab -&gt; Add&hellip;</li>
-<li>Trusted Platform Module</li>
-<li>OK</li>
-</ol>
-<h2 id="ws19">WS19</h2>
-<p>Windows Server 2019 will be our DC and DNS server. It requires no special hardware except we cannot load the ISO until after we&rsquo;ve created the VM, because VMWare Workstation will try to set it up for us, but we don&rsquo;t have a key to provide and it breaks setup.</p>
-<ol>
-<li>File -&gt; New Virtual Machine&hellip;</li>
-<li>Custom (advanced) -&gt; <code>Next &gt;</code></li>
-<li>Hardware compatibility: Workstation 15.x -&gt; <code>Next &gt;</code></li>
-<li>I will install the operating system later. -&gt; <code>Next &gt;</code></li>
-<li>Microsoft Windows, Version &ldquo;Windows Server 2016&rdquo; -&gt; <code>Next &gt;</code></li>
-<li>Virtual machine name: WS19 -&gt; <code>Next &gt;</code></li>
-<li>UEFI, Secure Boot -&gt; <code>Next &gt;</code></li>
-<li>Number of processors: 2, Number of cores per processor: 1 -&gt; <code>Next &gt;</code></li>
-<li>Memory for this virtual machine: 8192 -&gt; <code>Next &gt;</code></li>
-<li>Use host-only networking -&gt; <code>Next &gt;</code></li>
-<li>LSI Logic SAS (Recommended) -&gt; <code>Next &gt;</code></li>
-<li>NVME (Recommended) -&gt; <code>Next &gt;</code></li>
-<li>Create a new virtual disk -&gt; <code>Next &gt;</code></li>
-<li>Maximum disk size (GB): 80, Split virtual disk into multiple files -&gt; <code>Next &gt;</code></li>
-<li><code>Next &gt;</code></li>
-<li><code>Customize Hardware</code></li>
-<li>Network Adapter: Custom: Specific virtual network: VMnet5</li>
-<li>New CD/DVD (SATA): Use ISO image file: ws19.iso</li>
-<li><code>Close</code></li>
-<li><code>Finish</code></li>
-</ol>
-<h2 id="kali">Kali</h2>
-<p>For our attacker machine, we&rsquo;ll be using a pre-generated version of Kali. All that needs to be done is to extract the .7z file, double -click the .vmx file, and load it with VMWare Workstation. Once it&rsquo;s created, the settings can be modified but it&rsquo;s really not necessary for what we need it for. The only setting that must be changed is to change the network adapter to connect to VMnet4</p>
-<h2 id="security-onion">Security Onion</h2>
-<p>The star of the show, Security Onion is the IDS for the network and the center of our training. It needs a decent amount of RAM for processing logs and disk space for storing them, as well as an extra NIC for receiving packets.</p>
-<ol>
-<li>File -&gt; New Virtual Machine&hellip;</li>
-<li>Custom (advanced) -&gt; <code>Next &gt;</code></li>
-<li>Hardware compatibility: Workstation 15.x -&gt; <code>Next &gt;</code></li>
-<li>Installer disc image file (iso): securityonion-2.3.240-20230436.iso -&gt; <code>Next &gt;</code></li>
-<li>Linux, Version &ldquo;CentOS 7 64-bit&rdquo; -&gt; <code>Next &gt;</code></li>
-<li>Virtual machine name: SO-Standalone -&gt; <code>Next &gt;</code></li>
-<li>Number of processors: 2, Number of cores per processor: 2 -&gt; <code>Next &gt;</code></li>
-<li>Memory for this virtual machine: 16384 -&gt; <code>Next &gt;</code></li>
-<li>Use host-only networking -&gt; <code>Next &gt;</code></li>
-<li>LSI Logic (Recommended) -&gt; <code>Next &gt;</code></li>
-<li>SCSI (Recommended) -&gt; <code>Next &gt;</code></li>
-<li>Create a new virtual disk -&gt; <code>Next &gt;</code></li>
-<li>Maximum disk size (GB): 200, Split virtual disk into multiple files -&gt; <code>Next &gt;</code></li>
-<li><code>Next &gt;</code></li>
-<li><code>Customize Hardware</code></li>
-<li>Network Adapter: Custom: Specific virtual network: VMnet6</li>
-<li>Add&hellip;, Network Adapter</li>
-<li>Network Adapter 2: Custom: Specific virtual network: VMnet6</li>
-<li><code>Close</code></li>
-<li><code>Finish</code></li>
-</ol>
+<h2 id="this-is-a-test">this is a test</h2>
 
             <footer class="footline">
             </footer>
@@ -289,10 +176,10 @@
         <ul class="topics enlarge morespace">
           <li data-nav-id="/contributions/index.html" class=""><a class="padding" href="/contributions/index.html">Making Contributions</a></li>
           <li data-nav-id="/thelab/index.html" class="parent "><a class="padding" href="/thelab/index.html">The Lab</a><ul id="subsections-6b23a9f59d456ef5c80d5f4755ba3201" class="morespace">
-          <li data-nav-id="/thelab/setup/index.html" class="parent alwaysopen"><a class="padding" href="/thelab/setup/index.html">The Lab - Setup</a><ul id="subsections-9316735d68fc65e0c986299e6c88ffa0" class="morespace">
+          <li data-nav-id="/thelab/setup/index.html" class="active parent alwaysopen"><a class="padding" href="/thelab/setup/index.html">The Lab - Setup</a><ul id="subsections-9316735d68fc65e0c986299e6c88ffa0" class="morespace">
           <li data-nav-id="/thelab/setup/design/index.html" class=""><a class="padding" href="/thelab/setup/design/index.html">Design</a></li>
           <li data-nav-id="/thelab/setup/vmware_workstation/index.html" class=""><a class="padding" href="/thelab/setup/vmware_workstation/index.html">Vmware Workstation</a></li>
-          <li data-nav-id="/thelab/setup/creating_the_vms/index.html" class="active"><a class="padding" href="/thelab/setup/creating_the_vms/index.html">Creating the VMs</a></li>
+          <li data-nav-id="/thelab/setup/creating_the_vms/index.html" class=""><a class="padding" href="/thelab/setup/creating_the_vms/index.html">Creating the VMs</a></li>
           <li data-nav-id="/thelab/setup/vyos/index.html" class=""><a class="padding" href="/thelab/setup/vyos/index.html">VyOS</a></li>
           <li data-nav-id="/thelab/setup/win11/index.html" class=""><a class="padding" href="/thelab/setup/win11/index.html">Windows 11</a></li>
           <li data-nav-id="/thelab/setup/kali/index.html" class=""><a class="padding" href="/thelab/setup/kali/index.html">Kali</a></li>
