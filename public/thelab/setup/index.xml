@@ -51,14 +51,15 @@ OS Installation Boot into the live environment. This will take a couple minutes 
       <link>http://example.org/thelab/setup/kali/index.html</link>
       <pubDate>Mon, 08 May 2023 17:32:39 -0500</pubDate>
       <guid>http://example.org/thelab/setup/kali/index.html</guid>
-      <description></description>
+      <description>If you followed the Kali block of Creating the VMs, Kali should be ready to go. By default, the username/password is kali/kali. You can update it using apt if you bridge the network, but that really won&amp;rsquo;t be necessary for what we&amp;rsquo;re doing.</description>
     </item>
     <item>
       <title>Windows Server 2019</title>
       <link>http://example.org/thelab/setup/ws19/index.html</link>
       <pubDate>Mon, 08 May 2023 17:32:48 -0500</pubDate>
       <guid>http://example.org/thelab/setup/ws19/index.html</guid>
-      <description></description>
+      <description>The server just needs to be a domain controller so we can join the victim machine to a domain. Future iterations or scenarios may attack this server, and may require more features, but for now we&amp;rsquo;ll just set it up as a DC.
+OS Installation Next Install Now Select Windows Server 2019 Standard Evaluation (Desktop Experience) -&amp;gt; Next I accept the license terms -&amp;gt; Next Custom: Install Windows only (advanced) New -&amp;gt; OK -&amp;gt; Apply -&amp;gt; Next Set a password.</description>
     </item>
     <item>
       <title>Security Onion</title>
