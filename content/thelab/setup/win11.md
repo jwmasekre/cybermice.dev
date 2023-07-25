@@ -52,4 +52,25 @@ The Windows Firewall and Microsoft Defender are now disabled.
 
 ## Joining the Domain
 
-### Under Construction
+Once the Windows Server has been promoted to a domain controller, you can join this to the domain. Before we do this, make sure your DNS settings are correct
+
+1. `Win key` -> `control panel` -> Control Panel
+2. Network and Internet
+3. Network and Sharing Center
+4. Ethernet0
+5. `Properties`
+6. Internet Protocol Version 4 (TCP/IPv4) -> `Properties`
+7. Select `Use the following DNS server addresses:` and input the IP address of the Windows Server (`10.0.3.8`)
+8. `OK`
+9. `Close`
+10. `Close`
+
+To join the domain:
+
+1. `Win key` -> `settings` -> Settings
+2. Accounts -> Access work or school -> `Connect`
+3. `Join this device to a local Active Directory domain`
+4. Input the domain (`cybermice.dev`) -> `Next`
+5. Input the administrator credentials (`administrator`/`P@$$w0rd`)
+6. `Next`
+7. `Restart Now`
