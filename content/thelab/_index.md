@@ -1,7 +1,7 @@
 +++
 archetype = "chapter"
 title = "The Lab"
-weight = 1
+weight = 2
 +++
 
 This chapter covers the build, configuration, overview of tools, and walkthroughs of test and real scenarios for the Cybermice Lab. It's broken into three sections:
