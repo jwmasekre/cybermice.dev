@@ -22,7 +22,7 @@ flowchart TD
 
 |VM|HDD|MEM|NIC|CPU|Other|
 |---|---|---|---|---|---|
-|VyOS|10GB|4GB|6|1p/1c||
+|VyOS|50GB|4GB|6|1p/1c||
 |Win11|100GB|4GB|1|1p/1c|TPM|
 |Kali|80GB|8GB|1|2p/2c||
 |WS19|80GB|8GB|1|2p/1c||

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on cybermice</title>
+    <link>http://example.org/thelab/tools/index.html</link>
+    <description>Recent content in Tools on cybermice</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 29 Jul 2023 22:28:01 -0500</lastBuildDate><atom:link href="http://example.org/thelab/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overview</title>
+      <link>http://example.org/thelab/tools/overview/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/overview/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Alerts</title>
+      <link>http://example.org/thelab/tools/alerts/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/alerts/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dashboards</title>
+      <link>http://example.org/thelab/tools/dashboards/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/dashboards/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hunt</title>
+      <link>http://example.org/thelab/tools/hunt/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/hunt/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cases</title>
+      <link>http://example.org/thelab/tools/cases/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/cases/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PCAP</title>
+      <link>http://example.org/thelab/tools/pcap/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/pcap/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Grid</title>
+      <link>http://example.org/thelab/tools/grid/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/grid/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Downloads</title>
+      <link>http://example.org/thelab/tools/downloads/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/downloads/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Administration</title>
+      <link>http://example.org/thelab/tools/administration/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/administration/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kibana</title>
+      <link>http://example.org/thelab/tools/kibana/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/kibana/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Elastic Fleet</title>
+      <link>http://example.org/thelab/tools/elasticfleet/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/elasticfleet/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Osquery Manager</title>
+      <link>http://example.org/thelab/tools/osquerymanager/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/osquerymanager/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>InfluxDB</title>
+      <link>http://example.org/thelab/tools/influxdb/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/influxdb/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CyberChef</title>
+      <link>http://example.org/thelab/tools/cyberchef/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/cyberchef/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Playbook</title>
+      <link>http://example.org/thelab/tools/playbook/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/playbook/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Navigator</title>
+      <link>http://example.org/thelab/tools/navigator/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
+      <guid>http://example.org/thelab/tools/navigator/index.html</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -7,20 +7,20 @@
     <meta name="generator" content="Relearn 5.12.6+tip">
     <meta name="description" content="">
     <title>Security Onion :: cybermice</title>
-    <link href="/images/favicon.png?1690257079" rel="icon" type="image/png">
+    <link href="/images/favicon.png?1690688288" rel="icon" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1690257079" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1690257079" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1690257079" rel="stylesheet">
-    <link href="/css/auto-complete.css?1690257079" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1690257079" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1690257079" rel="stylesheet">
-    <link href="/css/fonts.css?1690257079" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1690257079" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1690257079" rel="stylesheet">
-    <link href="/css/theme-neon.css?1690257079" rel="stylesheet" id="variant-style">
-    <link href="/css/variant.css?1690257079" rel="stylesheet">
-    <link href="/css/print.css?1690257079" rel="stylesheet" media="print">
-    <link href="/css/ie.css?1690257079" rel="stylesheet">
-    <script src="/js/url.js?1690257079"></script>
-    <script src="/js/variant.js?1690257079"></script>
+    <link href="/css/fontawesome-all.min.css?1690688288" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1690688288" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1690688288" rel="stylesheet">
+    <link href="/css/auto-complete.css?1690688288" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1690688288" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1690688288" rel="stylesheet">
+    <link href="/css/fonts.css?1690688288" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1690688288" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1690688288" rel="stylesheet">
+    <link href="/css/theme-neon.css?1690688288" rel="stylesheet" id="variant-style">
+    <link href="/css/variant.css?1690688288" rel="stylesheet">
+    <link href="/css/print.css?1690688288" rel="stylesheet" media="print">
+    <link href="/css/ie.css?1690688288" rel="stylesheet">
+    <script src="/js/url.js?1690688288"></script>
+    <script src="/js/variant.js?1690688288"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -54,12 +54,23 @@
             <span id="sidebar-toggle-span">
               <a href="#" id="sidebar-toggle" class="topbar-link" title='Menu (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
             </span>
+            <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">cybermice</span></a><meta itemprop="position" content="1"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/thelab/index.html"><span itemprop="name">The Lab</span></a><meta itemprop="position" content="2"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/thelab/setup/index.html"><span itemprop="name">Setup</span></a><meta itemprop="position" content="3"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Security Onion</span><meta itemprop="position" content="4"></li>
             </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="toc-wrapper"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#os-installation">OS Installation</a></li>
+    <li><a href="#software-install">Software Install</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+  </ul>
+</nav>
+            </div>
           </div>
         </div>
       </nav>
@@ -70,6 +81,53 @@
           <article class="default">
 <h1 id="security-onion">Security Onion</h1>
 
+<p>We will be building out our Security Onion as a standalone 2.4 install. Since it&rsquo;s 2.4, it&rsquo;s based on Rocky Linux 9 rather than CentOS 7 (this will eventually migrate to Oracle Linux). This install will be an airgap install since we don&rsquo;t have the security onion connected to the internet.</p>
+<h2 id="os-installation">OS Installation</h2>
+<ol>
+<li>Select <code>Install Security Onion 2.4</code> or just let it automatically start</li>
+<li><code>yes</code></li>
+<li>Enter a username. <code>admin</code> works just fine.</li>
+<li>Enter a password. <code>password</code> works just fine. Confirm it.</li>
+<li>When the OS finishes installing, press enter.</li>
+</ol>
+<h2 id="software-install">Software Install</h2>
+<p>Quick note: Navigating the UI for the setup is a little weird. Enter is always equivalent to <code>OK</code>. Space is what you use to select an object when multiple objects can be selected. Tab can be used to move between sections of the UI, such as moving between selections and the <code>OK</code> and <code>Cancel</code> &ldquo;buttons.&rdquo;</p>
+<p>Also, if you mess up at any point and get kicked out of the setup, just reboot the server and log back in, and the script will restart with the correct setup.</p>
+<ol>
+<li>Sign in with the credentials created during the OS installation.</li>
+<li>Press enter.</li>
+<li>Select <code>Install</code> and press enter.</li>
+<li>Select <code>Standalone</code> and press enter.</li>
+<li><code>AGREE</code> -&gt; press enter.</li>
+<li>Select <code>Airgap</code> and press enter.</li>
+<li>You can either leave the name as <code>securityonion</code> or change it to something else. Whatever it gets set to, it&rsquo;s pretty much locked in. Press enter, and if it prompts you, select <code>Use Anyway</code> and press enter.</li>
+<li>Press enter.</li>
+<li>The NIC you select here <em><strong>MUST</strong></em> be the same as you input for the VyOS configuration. If the MAC addresses available don&rsquo;t match, change the configuration in VyOS first by entering <code>config</code> and inputting the same line but with an updated MAC address. Press enter.</li>
+<li>Select <code>DHCP</code> and press enter.</li>
+<li>Since we have a reservation already, we can just press enter with <code>Yes</code> selected.</li>
+<li>Press enter.</li>
+<li>Press space and then enter.</li>
+<li>The email you put here does not have to be a real email. I recommend <code>&lt;firstname&gt;@cybermice.dev</code>. Once filled out, press enter.</li>
+<li>Enter a password.</li>
+<li>Select IP and press enter.</li>
+<li>Press enter.</li>
+<li>Type <code>10.0.0.0/24</code> and press enter. This adds that network to the list of authorized IPs to access the web app.</li>
+<li>Press tab and then enter.</li>
+</ol>
+<p>This will take a bit, but once it finishes you should be able to connect to it via <code>http://10.0.4.5</code> using the email and password you set in steps 14 and 15. In order to verify that everything is running, run <code>sudo so-status</code> in the console; additionally, you should be able to ssh into the security onion, if there are no network issues. See <a href="#troubleshooting">Troubleshooting</a> below for more guidance if you still can&rsquo;t access the site.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ol>
+<li>Verify that everything has come up with a <code>sudo so-status</code>.
+<ul>
+<li>Wait for everything to come up, or if there&rsquo;s an error, proceed to the section that address that specific error.</li>
+</ul>
+</li>
+<li>Attempt to ping the host workstation with <code>ping 10.0.0.2</code>.
+<ul>
+<li>If you can ping 10.0.0.250, then you probably need to add a static route to your device. For windows, in an elevated command prompt: <code>route add 10.0.0.0 mask 255.255.255.248 10.0.0.254</code></li>
+</ul>
+</li>
+</ol>
 
             <footer class="footline">
             </footer>
@@ -149,12 +207,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1690257079" defer></script>
-        <script src="/js/lunr/lunr.min.js?1690257079" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1690257079" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1690257079" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1690257079" defer></script>
-        <script src="/js/search.js?1690257079" defer></script>
+        <script src="/js/auto-complete.js?1690688288" defer></script>
+        <script src="/js/lunr/lunr.min.js?1690688288" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1690688288" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1690688288" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1690688288" defer></script>
+        <script src="/js/search.js?1690688288" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -165,6 +223,23 @@
         <ul class="topics enlarge morespace">
           <li data-nav-id="/contributions/index.html" class=""><a class="padding" href="/contributions/index.html">Making Contributions</a></li>
           <li data-nav-id="/thelab/index.html" class="parent "><a class="padding" href="/thelab/index.html">The Lab</a><ul id="subsections-6b23a9f59d456ef5c80d5f4755ba3201" class="morespace">
+          <li data-nav-id="/thelab/tools/index.html" class="alwaysopen"><a class="padding" href="/thelab/tools/index.html">Tools</a><ul id="subsections-660c27761998fad4d4126ff2b96f65f9" class="morespace">
+          <li data-nav-id="/thelab/tools/overview/index.html" class=""><a class="padding" href="/thelab/tools/overview/index.html">Overview</a></li>
+          <li data-nav-id="/thelab/tools/alerts/index.html" class=""><a class="padding" href="/thelab/tools/alerts/index.html">Alerts</a></li>
+          <li data-nav-id="/thelab/tools/dashboards/index.html" class=""><a class="padding" href="/thelab/tools/dashboards/index.html">Dashboards</a></li>
+          <li data-nav-id="/thelab/tools/hunt/index.html" class=""><a class="padding" href="/thelab/tools/hunt/index.html">Hunt</a></li>
+          <li data-nav-id="/thelab/tools/cases/index.html" class=""><a class="padding" href="/thelab/tools/cases/index.html">Cases</a></li>
+          <li data-nav-id="/thelab/tools/pcap/index.html" class=""><a class="padding" href="/thelab/tools/pcap/index.html">PCAP</a></li>
+          <li data-nav-id="/thelab/tools/grid/index.html" class=""><a class="padding" href="/thelab/tools/grid/index.html">Grid</a></li>
+          <li data-nav-id="/thelab/tools/downloads/index.html" class=""><a class="padding" href="/thelab/tools/downloads/index.html">Downloads</a></li>
+          <li data-nav-id="/thelab/tools/administration/index.html" class=""><a class="padding" href="/thelab/tools/administration/index.html">Administration</a></li>
+          <li data-nav-id="/thelab/tools/kibana/index.html" class=""><a class="padding" href="/thelab/tools/kibana/index.html">Kibana</a></li>
+          <li data-nav-id="/thelab/tools/elasticfleet/index.html" class=""><a class="padding" href="/thelab/tools/elasticfleet/index.html">Elastic Fleet</a></li>
+          <li data-nav-id="/thelab/tools/osquerymanager/index.html" class=""><a class="padding" href="/thelab/tools/osquerymanager/index.html">Osquery Manager</a></li>
+          <li data-nav-id="/thelab/tools/influxdb/index.html" class=""><a class="padding" href="/thelab/tools/influxdb/index.html">InfluxDB</a></li>
+          <li data-nav-id="/thelab/tools/cyberchef/index.html" class=""><a class="padding" href="/thelab/tools/cyberchef/index.html">CyberChef</a></li>
+          <li data-nav-id="/thelab/tools/playbook/index.html" class=""><a class="padding" href="/thelab/tools/playbook/index.html">Playbook</a></li>
+          <li data-nav-id="/thelab/tools/navigator/index.html" class=""><a class="padding" href="/thelab/tools/navigator/index.html">Navigator</a></li></ul></li>
           <li data-nav-id="/thelab/setup/index.html" class="parent alwaysopen"><a class="padding" href="/thelab/setup/index.html">Setup</a><ul id="subsections-9316735d68fc65e0c986299e6c88ffa0" class="morespace">
           <li data-nav-id="/thelab/setup/design/index.html" class=""><a class="padding" href="/thelab/setup/design/index.html">Design</a></li>
           <li data-nav-id="/thelab/setup/vmware_workstation/index.html" class=""><a class="padding" href="/thelab/setup/vmware_workstation/index.html">Vmware Workstation</a></li>
@@ -175,6 +250,9 @@
           <li data-nav-id="/thelab/setup/ws19/index.html" class=""><a class="padding" href="/thelab/setup/ws19/index.html">Windows Server 2019</a></li>
           <li data-nav-id="/thelab/setup/so/index.html" class="active"><a class="padding" href="/thelab/setup/so/index.html">Security Onion</a></li>
           <li data-nav-id="/thelab/setup/variations/index.html" class=""><a class="padding" href="/thelab/setup/variations/index.html">Variations</a></li></ul></li></ul></li>
+          <li data-nav-id="/guides/index.html" class=""><a class="padding" href="/guides/index.html">Guides and Walkthroughs</a><ul id="subsections-cecd4ea74d1b57416f3e6afae6030290" class="morespace">
+          <li data-nav-id="/guides/osint/index.html" class="alwaysopen"><a class="padding" href="/guides/osint/index.html">OSINT</a><ul id="subsections-0eb1fb6966fde5261fa1bfe769a8b22a" class="morespace">
+          <li data-nav-id="/guides/osint/latlon-shadowtime/index.html" class=""><a class="padding" href="/guides/osint/latlon-shadowtime/index.html">Determining Latitude/Longitude using Shadows and Date/Time</a></li></ul></li></ul></li>
         </ul>
         <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showFooter"></div>
         <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showFooter">
@@ -221,8 +299,8 @@
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1690257079" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1690257079" defer></script>
-    <script src="/js/theme.js?1690257079" defer></script>
+    <script src="/js/clipboard.min.js?1690688288" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1690688288" defer></script>
+    <script src="/js/theme.js?1690688288" defer></script>
   </body>
 </html>

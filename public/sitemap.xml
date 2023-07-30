@@ -1,51 +1,131 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://example.org/thelab/tools/overview/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
     <loc>http://example.org/contributions/index.html</loc>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/tools/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
   </url>
   <url>
     <loc>http://example.org/thelab/setup/index.html</loc>
     <lastmod>2023-07-24T16:04:01-05:00</lastmod>
   </url>
   <url>
-    <loc>http://example.org/thelab/index.html</loc>
-    <lastmod>2023-07-24T16:04:01-05:00</lastmod>
+    <loc>http://example.org/guides/index.html</loc>
+    <lastmod>2023-07-29T11:36:00-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/guides/osint/index.html</loc>
+    <lastmod>2023-07-29T11:36:00-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/tools/alerts/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/guides/osint/latlon-shadowtime/index.html</loc>
+    <lastmod>2023-07-29T11:36:00-05:00</lastmod>
   </url>
   <url>
     <loc>http://example.org/thelab/setup/design/index.html</loc>
     <lastmod>2023-05-08T17:27:12-05:00</lastmod>
   </url>
   <url>
+    <loc>http://example.org/thelab/tools/dashboards/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
     <loc>http://example.org/thelab/setup/vmware_workstation/index.html</loc>
     <lastmod>2023-05-08T17:31:33-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/tools/hunt/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
   </url>
   <url>
     <loc>http://example.org/thelab/setup/creating_the_vms/index.html</loc>
     <lastmod>2023-05-08T17:30:22-05:00</lastmod>
   </url>
   <url>
+    <loc>http://example.org/thelab/tools/cases/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
     <loc>http://example.org/thelab/setup/vyos/index.html</loc>
     <lastmod>2023-05-08T17:30:37-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/tools/pcap/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
   </url>
   <url>
     <loc>http://example.org/thelab/setup/win11/index.html</loc>
     <lastmod>2023-05-08T17:31:46-05:00</lastmod>
   </url>
   <url>
+    <loc>http://example.org/thelab/tools/grid/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
     <loc>http://example.org/thelab/setup/kali/index.html</loc>
     <lastmod>2023-05-08T17:32:39-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/tools/downloads/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
   </url>
   <url>
     <loc>http://example.org/thelab/setup/ws19/index.html</loc>
     <lastmod>2023-05-08T17:32:48-05:00</lastmod>
   </url>
   <url>
+    <loc>http://example.org/thelab/tools/administration/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
     <loc>http://example.org/thelab/setup/so/index.html</loc>
     <lastmod>2023-05-08T17:33:01-05:00</lastmod>
   </url>
   <url>
+    <loc>http://example.org/thelab/tools/kibana/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
     <loc>http://example.org/thelab/setup/variations/index.html</loc>
     <lastmod>2023-07-24T16:04:01-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/tools/elasticfleet/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/tools/osquerymanager/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/tools/influxdb/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/tools/cyberchef/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/tools/playbook/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/tools/navigator/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
   </url>
   <url>
     <loc>http://example.org/categories/index.html</loc>

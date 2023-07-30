@@ -6,7 +6,7 @@
     <description>Recent content on cybermice</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Jul 2023 16:04:01 -0500</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Jul 2023 22:28:01 -0500</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Making Contributions</title>
       <link>http://example.org/contributions/index.html</link>
@@ -18,10 +18,17 @@ No internal information. This site is very public. Anybody with the url can navi
     <item>
       <title>The Lab</title>
       <link>http://example.org/thelab/index.html</link>
-      <pubDate>Mon, 24 Jul 2023 16:04:01 -0500</pubDate>
+      <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/index.html</guid>
       <description>This chapter covers the build, configuration, overview of tools, and walkthroughs of test and real scenarios for the Cybermice Lab. It&amp;rsquo;s broken into three sections:
 Setup Talks about design philosophy, covers installation, and provides guides for configuration Tools Provides an overview of the tools used in the scenarios Scenarios Provides scenarios and suggested walkthroughs for training on the tools </description>
+    </item>
+    <item>
+      <title>Guides and Walkthroughs</title>
+      <link>http://example.org/guides/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 11:36:00 -0500</pubDate>
+      <guid>http://example.org/guides/index.html</guid>
+      <description>This section contains miscelaneous guides and walkthroughs that may be useful. If you do something that you don&amp;rsquo;t see in this section, please consider creating a walkthrough for it. We can always work together to make it pretty and more robust, but just getting something written down is invaluable to our effectiveness as a team.</description>
     </item>
   </channel>
 </rss>

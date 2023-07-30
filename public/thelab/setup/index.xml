@@ -66,7 +66,8 @@ OS Installation Next Install Now Select Windows Server 2019 Standard Evaluation 
       <link>http://example.org/thelab/setup/so/index.html</link>
       <pubDate>Mon, 08 May 2023 17:33:01 -0500</pubDate>
       <guid>http://example.org/thelab/setup/so/index.html</guid>
-      <description></description>
+      <description>We will be building out our Security Onion as a standalone 2.4 install. Since it&amp;rsquo;s 2.4, it&amp;rsquo;s based on Rocky Linux 9 rather than CentOS 7 (this will eventually migrate to Oracle Linux). This install will be an airgap install since we don&amp;rsquo;t have the security onion connected to the internet.
+OS Installation Select Install Security Onion 2.4 or just let it automatically start yes Enter a username. admin works just fine.</description>
     </item>
     <item>
       <title>Variations</title>

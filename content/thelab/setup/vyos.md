@@ -53,7 +53,7 @@ Note: There may need to be more configuration needed in order to allow ssh to th
 7. Select Use the following IP Address:
     * IP address: `10.0.0.2`
     * Subnet mask: `255.255.255.0`
-    * Default gateway: `10.0.0.1`
+    * Default gateway: `10.0.0.250`
 8. `OK`
 9. `OK`
 
@@ -144,8 +144,6 @@ set service dhcp-server shared-network-name AXIS subnet 10.0.3.0/24 range 0 star
 set service dhcp-server shared-network-name AXIS subnet 10.0.3.0/24 range 0 stop 10.0.3.247
 
 set interface ethernet eth4 address 10.0.4.1/24
-set interface ethernet eth4 mirror egress eth5
-set interface ethernet eth4 mirror ingress eth5
 set service dhcp-server shared-network-name OVERWATCH subnet 10.0.4.0/24 default-router 10.0.4.1
 set service dhcp-server shared-network-name OVERWATCH subnet 10.0.4.0/24 domain-name cybermice.dev
 set service dhcp-server shared-network-name OVERWATCH subnet 10.0.4.0/24 lease 86400

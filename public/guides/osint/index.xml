@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OSINT on cybermice</title>
+    <link>http://example.org/guides/osint/index.html</link>
+    <description>Recent content in OSINT on cybermice</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 29 Jul 2023 11:36:00 -0500</lastBuildDate><atom:link href="http://example.org/guides/osint/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Determining Latitude/Longitude using Shadows and Date/Time</title>
+      <link>http://example.org/guides/osint/latlon-shadowtime/index.html</link>
+      <pubDate>Sat, 29 Jul 2023 11:36:00 -0500</pubDate>
+      <guid>http://example.org/guides/osint/latlon-shadowtime/index.html</guid>
+      <description>I was inspired to figure this out because someone I know online posted a video of some cctv, and I wanted to see if I could determine where the cctv was. Google was surprisingly hostile; most sources I found simply said &amp;ldquo;You don&amp;rsquo;t have enough information&amp;rdquo; or wanted to invert the date/time for lat/long, which would require a guess-and-check method. I&amp;rsquo;m writing this inline with my work, so there may still be some guess-and-check but I know it shouldn&amp;rsquo;t be that much.</description>
+    </item>
+  </channel>
+</rss>

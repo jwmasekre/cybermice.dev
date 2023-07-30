@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.111.3">
+    <meta name="generator" content="Relearn 5.12.6+tip">
+    <meta name="description" content="">
+    <title>Determining Latitude/Longitude using Shadows and Date/Time :: cybermice</title>
+    <link href="/images/favicon.png?1690688288" rel="icon" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="/css/fontawesome-all.min.css?1690688288" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1690688288" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1690688288" rel="stylesheet">
+    <link href="/css/auto-complete.css?1690688288" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1690688288" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1690688288" rel="stylesheet">
+    <link href="/css/fonts.css?1690688288" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1690688288" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1690688288" rel="stylesheet">
+    <link href="/css/theme-neon.css?1690688288" rel="stylesheet" id="variant-style">
+    <link href="/css/variant.css?1690688288" rel="stylesheet">
+    <link href="/css/print.css?1690688288" rel="stylesheet" media="print">
+    <link href="/css/ie.css?1690688288" rel="stylesheet">
+    <script src="/js/url.js?1690688288"></script>
+    <script src="/js/variant.js?1690688288"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      window.T_No_results_found = 'No results found for \u0022{0}\u0022';
+      window.T_N_results_found = '{1} results found for \u0022{0}\u0022';
+      // some further base stuff
+      var baseUriFull='http:\/\/example.org/';
+      window.variants && variants.init( [ 'neon', 'relearn-dark', 'relearn-light', 'relearn-bright', 'red', 'green', 'blue', 'learn' ] );
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/guides/osint/latlon-shadowtime/index.html">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+            <span class="nav nav-next topbar-link"><i class="fa fa-chevron-right fa-fw"></i></span>
+          </div>
+          <div class="navigation">
+            <a class="nav nav-prev topbar-link" href="/guides/osint/index.html" title="OSINT (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" class="topbar-link" title='Menu (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">cybermice</span></a><meta itemprop="position" content="1"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/guides/index.html"><span itemprop="name">Guides and Walkthroughs</span></a><meta itemprop="position" content="2"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/guides/osint/index.html"><span itemprop="name">OSINT</span></a><meta itemprop="position" content="3"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Determining Latitude/Longitude using Shadows and Date/Time</span><meta itemprop="position" content="4"></li>
+            </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="toc-wrapper"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-physics">The physics</a>
+      <ul>
+        <li><a href="#definitions">Definitions</a></li>
+        <li><a href="#solar-noon-and-equinox">Solar Noon and Equinox</a></li>
+        <li><a href="#not-solar-noon">Not Solar Noon</a></li>
+        <li><a href="#not-equinox">Not Equinox</a></li>
+        <li><a href="#putting-it-all-together">Putting It All Together</a></li>
+      </ul>
+    </li>
+    <li><a href="#appendix-a---math-logic">Appendix A - Math Logic</a></li>
+  </ul>
+</nav>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+          <article class="default">
+<h1 id="determining-latitudelongitude-using-shadows-and-datetime">Determining Latitude/Longitude using Shadows and Date/Time</h1>
+
+<p>I was inspired to figure this out because someone I know online posted a video of some cctv, and I wanted to see if I could determine where the cctv was. Google was surprisingly hostile; most sources I found simply said &ldquo;You don&rsquo;t have enough information&rdquo; or wanted to invert the date/time for lat/long, which would require a guess-and-check method. I&rsquo;m writing this inline with my work, so there may still be some guess-and-check but I know it shouldn&rsquo;t be that much.</p>
+<h2 id="the-physics">The physics</h2>
+<p>I happen to have a friend who is an astrophysicist, so I can get a pretty good explanation from him regarding how this works, and then translate that for this guide. The math requires some trigonometry (this is based on angles after all), so if you want to have a full mathematical understanding of this, some brushing up on high school/college math may be required. If you don&rsquo;t care, or this is too much math, you can safely skip this section and still be effective.</p>
+<h3 id="definitions">Definitions</h3>
+<p>We&rsquo;ll start with some definitions:</p>
+<ul>
+<li><strong>Zenith</strong>: Straight out from the center of the earth at our specific point on earth. In this case, straight through the object.</li>
+<li><strong>Zenith Angle</strong>: The angle between the Zenith and the Sun. If you imagine the object and shadow as the two sides of a right triangle (with the line between the top of the object and the end of the shadow being the hypotenuse)</li>
+<li><strong>Equinox</strong>: This is the point when the sun is directly over the Earth&rsquo;s equator. It&rsquo;s also the exact midpoint between the Summer Solstice and the Winter Solstice. Autumnal (fall) and Vernal (spring) are identical in terms of sun&rsquo;s location.</li>
+<li><strong>Solstice</strong>: The point when the sun is as far north or as far south as it gets, relative to the equator. In the northern hemisphere, the northern Solstice is considered the summer Solstice, and the southern one is the winter Solstice. This is inverted in the southern hemisphere.</li>
+<li><strong>Solar Noon</strong>: The point when the sun is highest in the sky for the day. Note that solar noon varies based on how far you are from the Royal Observatory in Greenwich, London; this means that that solar noon happens sooner the further west you go and later the further east you go. This <em>also</em> means that Daylight Savings Time pushes Solar Noon an hour later.</li>
+<li><strong>Declination</strong>: How far north or south the sun is at any given time during the year. This ranges from 23.44 degrees during the June Solstice, 0 during the March and September Equinoxes, and -23.44 degrees during the December Solstice. Note that we use the name of the month, because the seasons are inverted in the norther hemisphere and the southern hemisphere.</li>
+</ul>
+<h3 id="solar-noon-and-equinox">Solar Noon and Equinox</h3>
+<p>We&rsquo;ll start with the easiest situation: Solar Noon on the Equinox. This is the easiest way to determine Latitude: since the sun is directly over the equator, at the equator the Zenith Angle is 0, which matches the Latitude. This also means that at the poles, the Zenith angle is 90, which matches the Latitude there. We can infer then that the Zenith Angle at Solar Noon is equal to the Latitude of our location. To find the Zenith Angle, we use Soh-Cah-Toa: in this case, the Opposite line is the shadow, and the Adjacent line is the object. The equation then is <code>tan(Zenith Angle) = shadow length/object length</code>; isolating Zenith Angle looks like <code>Zenith Angle = arctan(shadow length/object length)</code>. Note, <code>arctan</code> on calculators usually looks like <code>tan^-1</code>. So if your shadow is 6ft. and your object is also 6ft., <code>arctan(6/6) = arctan(1) = 45</code>, so the latitude is 45 degrees.</p>
+<p>What about longitude? This is where the time of the image comes into play. For simplicity&rsquo;s sake, we&rsquo;re assuming that time zones are equivalent in size; we can account for variations in time zone locations as we add complexity to this equation. Our time zones adjust time in one hour chunks, so we can assume Solar Noon is somewhere between noon and 1300 (again, reality is a bit more complex than this, and actually +/-1hr is more realistic, but we&rsquo;re simplifying the calculation for explaining the math). To calculate how far from the zero point we are, we can just take the time of Solar Noon minus noon, divide that by 60. This gives us the percentage between the beginning of the time zone and the end of the time zone. Since there&rsquo;s 24 hours in a day, and 360 degrees of longitude (180 east and 180 west), time zones change every 15 degrees. Therefore, we take that percentage times 15 to get the number of degree east of the beginning of the time zone. This can be represented as <code>x+15n</code>, where <code>x</code> is how far east from the beginning of the time zone we are and n is the time zone.</p>
+<p>That was a lot, so I&rsquo;ll give an example. Let&rsquo;s say Solar Noon is at 1230. 1230 minus 1200 is 30, and 30 divided by 60 is .5, so we are 50% between the beginning of the time zone and the end. Since the time zone is 15 degrees across, 50% of 15 is 7.5. So we know we are 7.5 degrees east of the beginning of the time zone. <code>x+15n</code> becomes <code>7.5+15n</code>. Our longitude could be any of the following: 7.5, 22.5, 37.5, 52.5, 67.5, 82.5, 97.5, 112.5, 127.5, 142.5, 157.5, 172.5, 187.5, 202.5, 217.5, 232.5, 247.5, 262.5, 277.5, 292.5, 307.5, 322.5, 337.5, and 352.5. Between this and the latitude, we can look at these locations on a map and determine whether or not they make sense, given the contents of the photo.</p>
+<h3 id="not-solar-noon">Not Solar Noon</h3>
+<p>To develop the full equation to follow, we will isolate each component that is variable and then put them all together. First, we&rsquo;ll determine how to account for a change in time of day. We already know that Solar Noon is the maximum height the sun will be for the day. This <em>also</em> means that Solar Noon is the minimum Zenith Angle for the day. Logically, this makes Sunrise and Sunset the maximum Zenith Angle, which is 90 degrees. To start, we will assume the sun moves at a steady rate through the sky, so the calculation for the Zenith Angle based on time would be as follows: <code>Latitude+(90-Latitude)*(|Time of Day-noon|)/(noon-sunrise)</code>.</p>
+<p>That&rsquo;s one hell of an equation (it will only get worse, trust me), so we&rsquo;ll break it down. We know that the Zenith Angle must at least be its minimum, which we know is it&rsquo;s Zenith Angle at Solar Noon, which we <em>also</em> know is it&rsquo;s Latitude. That&rsquo;s the first part. We then want to add degrees based on how far we made it into the day. <code>Time of Day-noon</code> gives us how far away from noon we are. Taking the absolute value (bounded by |) gives us just the amount of distance, not which direction; direction doesn&rsquo;t matter for this. Then, if we divide that by the difference between noon and sunrise (or how much time between maximum and minimum), it gives us the percentage of how far from noon to sunset/sunrise we are. That&rsquo;s the <code>(|Time of Day-noon|)/(noon/sunrise)</code> portion. Finally, that percentage is how far from Latitude to 90 we are, so if we take that percentage times 90-Latitude, that gives us how much to add to our Latitude, which is the <code>(Latitude-90)</code> portion.</p>
+<h3 id="not-equinox">Not Equinox</h3>
+<h3 id="putting-it-all-together">Putting It All Together</h3>
+<h2 id="appendix-a---math-logic">Appendix A - Math Logic</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$solarzenithangle</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">degrees</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">acos</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">sin</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#960050;background-color:#1e0010">$latitude</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">*sin</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#960050;background-color:#1e0010">$sundeclination</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">+cos</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#960050;background-color:#1e0010">$latitude</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">*cos</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#960050;background-color:#1e0010">$hourangle</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$latitude</span> {<span style="color:#960050;background-color:#1e0010">given</span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$sundeclination</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">degrees</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">asin</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">sin</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#960050;background-color:#1e0010">$obliqcorr</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">*sin</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#960050;background-color:#1e0010">$sunapplong</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$hourangle</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">if</span> <span style="color:#960050;background-color:#1e0010">$truesolartime/4&gt;0</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">$truesolartime/4+180</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">$truesolartime/4-180</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$obliqcorr</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$meanobliqueecliptic</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">+.</span><span style="color:#ae81ff">00256</span><span style="color:#960050;background-color:#1e0010">*cos</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">125.04</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">-1934.136</span><span style="color:#960050;background-color:#1e0010">*$julancentury</span> {}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$sunapplong</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$suntruelong</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">-.</span><span style="color:#ae81ff">00569</span> {}
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">-00478</span><span style="color:#960050;background-color:#1e0010">*sin</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">125.04</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">-1934.136</span><span style="color:#960050;background-color:#1e0010">*$julancentury</span> {}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$truesolartime</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">mod</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">$minutespastmidnight*1400</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">+$eqoftime</span> {}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">4</span><span style="color:#960050;background-color:#1e0010">*$longitude</span> {}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">60</span><span style="color:#960050;background-color:#1e0010">*$timezone</span> {}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">,</span><span style="color:#ae81ff">1440</span> {}
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$meanobliqueecliptic</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">23+</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">26+</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">21.448</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">-$julancentury*</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">46.815</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">+$juliancentury*</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#960050;background-color:#1e0010">.00059</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>                    <span style="color:#960050;background-color:#1e0010">-$julancentury*.</span><span style="color:#ae81ff">001813</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#ae81ff">60</span> {}
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#ae81ff">60</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$julancentury</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">$julianday</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-2451545</span> {}
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#ae81ff">36525</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$suntruelong</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$geommeanlongsun</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">+$suneqofctr</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$minutespastmidnight</span> {<span style="color:#960050;background-color:#1e0010">given</span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$eqoftime</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">4*degrees</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">$var-y*sin</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">2*radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">$geommeanlongsun</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-2</span><span style="color:#960050;background-color:#1e0010">*$eccentearthorbit*sin</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">$geommeananomsun</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">4</span><span style="color:#960050;background-color:#1e0010">*$eccentearthorbit*$var-y*sin</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">$geommeananomsun</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">*cos</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">2*radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">$geommeanlongsun</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">-.</span><span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">*$var-y*$var-y*sin</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">4*radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">$geommeanlongsun</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">-1.25</span><span style="color:#960050;background-color:#1e0010">*$eccentearthorbit*$eccentearthorbit*sin</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">2*radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">$geommeananomsun</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$julianday</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$date</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">2415018.5</span> {}
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$minutespastmidnight</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$geomeanlongsun</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">mod</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">280.46646</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">+$juliancentury*</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">36000.76983</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">+$juliancentury*.</span><span style="color:#ae81ff">0003032</span> {}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">,</span><span style="color:#ae81ff">360</span> {}
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$suneqofctr</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">sin</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">$geommeananomsun</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">*</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">1.914602</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">-$juliancentury*</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">.004817</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">+.</span><span style="color:#ae81ff">000014</span><span style="color:#960050;background-color:#1e0010">*$juliancentury</span> {}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">+sin</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">2*$geommeananomsun</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">*</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">.019993</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">-.</span><span style="color:#ae81ff">000101</span><span style="color:#960050;background-color:#1e0010">*$juliancentury</span> {}
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">+sin</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">3*$geommeananomsun</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">*.</span><span style="color:#ae81ff">000289</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$var-y</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">tan</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">$obliqcorr/2</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">*tan</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">radians</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">$obliqcorr/2</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$eccentearthorbit</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">.016708634</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">-$juliancentury*</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">.000042037</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">+.</span><span style="color:#ae81ff">0000001267</span><span style="color:#960050;background-color:#1e0010">*$juliancentury</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$geommeananomsun</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">mod</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">280.46646</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">+$juliancentury*</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">36000.76983</span> <span style="color:#960050;background-color:#1e0010">{</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">+$juliancentury*.</span><span style="color:#ae81ff">0003032</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">,</span><span style="color:#ae81ff">360</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div>
+            <footer class="footline">
+            </footer>
+          </article>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<style>
+    #logo svg,
+    #logo svg * {
+      color: #282828;
+      color: var(--MENU-SECTIONS-BG-color);
+      fill: #282828 !important;
+      fill: var(--MENU-SECTIONS-BG-color) !important;
+      opacity: .945;
+    }
+    a#logo {
+      color: #282828;
+      color: var(--MENU-SECTIONS-BG-color);
+      font-family: 'Work Sans', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
+      font-size: 1.875rem;
+      font-weight: 300;
+      margin-top: -.8125rem;
+      max-width: 60%;
+      text-transform: uppercase;
+      width: 14.125rem;
+      white-space: nowrap;
+    }
+    a#logo:hover {
+      color: #282828;
+      color: var(--MENU-SECTIONS-BG-color);
+    }
+    #logo svg {
+      margin-bottom: -1.25rem;
+      margin-inline-start: -1.47rem;
+      width: 40.5%;
+    }
+    @media only all and (max-width: 60rem) {
+      a#logo {
+        font-size: 1.5625rem;
+        margin-top: -.1875rem;
+      }
+      #logo svg {
+        margin-bottom: -.75rem;
+        margin-inline-start: -1.47rem;
+      }
+    }
+    @media all and (-ms-high-contrast:none) {
+      /* IE11s understanding of positioning is weird at best */
+      a#logo {
+        margin-top: -3.625rem;
+      }
+      #logo svg {
+        margin-bottom: -3.875rem;
+        margin-left: -1.47rem;
+      }
+    }
+    @media only all and (-ms-high-contrast:none) and (max-width: 60rem) {
+      #logo svg {
+        margin-left: -1.47rem;
+      }
+    }
+  </style>
+  <a id="logo" href="/index.html">
+    <img src="/images/cybermicefinal.png">
+  </a>
+        </div>
+        <div class="searchbox default-animation">
+          <i class="fas fa-search" title="Search (CTRL+ALT+f)"></i>
+          <label class="a11y-only" for="search-by">Search</label>
+          <input data-search-input id="search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1690688288" defer></script>
+        <script src="/js/lunr/lunr.min.js?1690688288" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1690688288" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1690688288" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1690688288" defer></script>
+        <script src="/js/search.js?1690688288" defer></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li><a class="padding" href="/index.html"><i class="fas fa-home"></i> Home</a></li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics enlarge morespace">
+          <li data-nav-id="/contributions/index.html" class=""><a class="padding" href="/contributions/index.html">Making Contributions</a></li>
+          <li data-nav-id="/thelab/index.html" class=""><a class="padding" href="/thelab/index.html">The Lab</a><ul id="subsections-6b23a9f59d456ef5c80d5f4755ba3201" class="morespace">
+          <li data-nav-id="/thelab/tools/index.html" class="alwaysopen"><a class="padding" href="/thelab/tools/index.html">Tools</a><ul id="subsections-660c27761998fad4d4126ff2b96f65f9" class="morespace">
+          <li data-nav-id="/thelab/tools/overview/index.html" class=""><a class="padding" href="/thelab/tools/overview/index.html">Overview</a></li>
+          <li data-nav-id="/thelab/tools/alerts/index.html" class=""><a class="padding" href="/thelab/tools/alerts/index.html">Alerts</a></li>
+          <li data-nav-id="/thelab/tools/dashboards/index.html" class=""><a class="padding" href="/thelab/tools/dashboards/index.html">Dashboards</a></li>
+          <li data-nav-id="/thelab/tools/hunt/index.html" class=""><a class="padding" href="/thelab/tools/hunt/index.html">Hunt</a></li>
+          <li data-nav-id="/thelab/tools/cases/index.html" class=""><a class="padding" href="/thelab/tools/cases/index.html">Cases</a></li>
+          <li data-nav-id="/thelab/tools/pcap/index.html" class=""><a class="padding" href="/thelab/tools/pcap/index.html">PCAP</a></li>
+          <li data-nav-id="/thelab/tools/grid/index.html" class=""><a class="padding" href="/thelab/tools/grid/index.html">Grid</a></li>
+          <li data-nav-id="/thelab/tools/downloads/index.html" class=""><a class="padding" href="/thelab/tools/downloads/index.html">Downloads</a></li>
+          <li data-nav-id="/thelab/tools/administration/index.html" class=""><a class="padding" href="/thelab/tools/administration/index.html">Administration</a></li>
+          <li data-nav-id="/thelab/tools/kibana/index.html" class=""><a class="padding" href="/thelab/tools/kibana/index.html">Kibana</a></li>
+          <li data-nav-id="/thelab/tools/elasticfleet/index.html" class=""><a class="padding" href="/thelab/tools/elasticfleet/index.html">Elastic Fleet</a></li>
+          <li data-nav-id="/thelab/tools/osquerymanager/index.html" class=""><a class="padding" href="/thelab/tools/osquerymanager/index.html">Osquery Manager</a></li>
+          <li data-nav-id="/thelab/tools/influxdb/index.html" class=""><a class="padding" href="/thelab/tools/influxdb/index.html">InfluxDB</a></li>
+          <li data-nav-id="/thelab/tools/cyberchef/index.html" class=""><a class="padding" href="/thelab/tools/cyberchef/index.html">CyberChef</a></li>
+          <li data-nav-id="/thelab/tools/playbook/index.html" class=""><a class="padding" href="/thelab/tools/playbook/index.html">Playbook</a></li>
+          <li data-nav-id="/thelab/tools/navigator/index.html" class=""><a class="padding" href="/thelab/tools/navigator/index.html">Navigator</a></li></ul></li>
+          <li data-nav-id="/thelab/setup/index.html" class="alwaysopen"><a class="padding" href="/thelab/setup/index.html">Setup</a><ul id="subsections-9316735d68fc65e0c986299e6c88ffa0" class="morespace">
+          <li data-nav-id="/thelab/setup/design/index.html" class=""><a class="padding" href="/thelab/setup/design/index.html">Design</a></li>
+          <li data-nav-id="/thelab/setup/vmware_workstation/index.html" class=""><a class="padding" href="/thelab/setup/vmware_workstation/index.html">Vmware Workstation</a></li>
+          <li data-nav-id="/thelab/setup/creating_the_vms/index.html" class=""><a class="padding" href="/thelab/setup/creating_the_vms/index.html">Creating the VMs</a></li>
+          <li data-nav-id="/thelab/setup/vyos/index.html" class=""><a class="padding" href="/thelab/setup/vyos/index.html">VyOS</a></li>
+          <li data-nav-id="/thelab/setup/win11/index.html" class=""><a class="padding" href="/thelab/setup/win11/index.html">Windows 11</a></li>
+          <li data-nav-id="/thelab/setup/kali/index.html" class=""><a class="padding" href="/thelab/setup/kali/index.html">Kali</a></li>
+          <li data-nav-id="/thelab/setup/ws19/index.html" class=""><a class="padding" href="/thelab/setup/ws19/index.html">Windows Server 2019</a></li>
+          <li data-nav-id="/thelab/setup/so/index.html" class=""><a class="padding" href="/thelab/setup/so/index.html">Security Onion</a></li>
+          <li data-nav-id="/thelab/setup/variations/index.html" class=""><a class="padding" href="/thelab/setup/variations/index.html">Variations</a></li></ul></li></ul></li>
+          <li data-nav-id="/guides/index.html" class="parent "><a class="padding" href="/guides/index.html">Guides and Walkthroughs</a><ul id="subsections-cecd4ea74d1b57416f3e6afae6030290" class="morespace">
+          <li data-nav-id="/guides/osint/index.html" class="parent alwaysopen"><a class="padding" href="/guides/osint/index.html">OSINT</a><ul id="subsections-0eb1fb6966fde5261fa1bfe769a8b22a" class="morespace">
+          <li data-nav-id="/guides/osint/latlon-shadowtime/index.html" class="active"><a class="padding" href="/guides/osint/latlon-shadowtime/index.html">Determining Latitude/Longitude using Shadows and Date/Time</a></li></ul></li></ul></li>
+        </ul>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showFooter"></div>
+        <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showFooter">
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks showVariantSwitch">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <div class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <label class="a11y-only" for="select-language">Language</label>
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </div>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch showVariantSwitch">
+              <div class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <label class="a11y-only" for="select-variant">Theme</label>
+                  <select id="select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                    <option id="neon" value="neon" selected>Neon</option>
+                    <option id="relearn-dark" value="relearn-dark">Relearn Dark</option>
+                    <option id="relearn-light" value="relearn-light">Relearn Light</option>
+                    <option id="relearn-bright" value="relearn-bright">Relearn Bright</option>
+                    <option id="red" value="red">Red</option>
+                    <option id="green" value="green">Green</option>
+                    <option id="blue" value="blue">Blue</option>
+                    <option id="learn" value="learn">Learn</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </div>
+              <script>window.variants && variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><button class="padding" onclick="clearHistory();"><i class="fas fa-history fa-fw"></i><span>&nbsp;</span>Clear History</button></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1690688288" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1690688288" defer></script>
+    <script src="/js/theme.js?1690688288" defer></script>
+  </body>
+</html>
