@@ -7,20 +7,20 @@
     <meta name="generator" content="Relearn 5.12.6+tip">
     <meta name="description" content="">
     <title>Alerts :: cybermice</title>
-    <link href="/images/favicon.png?1690688442" rel="icon" type="image/png">
+    <link href="/images/favicon.png?1690992215" rel="icon" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1690688442" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1690688442" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1690688442" rel="stylesheet">
-    <link href="/css/auto-complete.css?1690688442" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1690688442" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1690688442" rel="stylesheet">
-    <link href="/css/fonts.css?1690688442" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1690688442" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1690688442" rel="stylesheet">
-    <link href="/css/theme-neon.css?1690688442" rel="stylesheet" id="variant-style">
-    <link href="/css/variant.css?1690688442" rel="stylesheet">
-    <link href="/css/print.css?1690688442" rel="stylesheet" media="print">
-    <link href="/css/ie.css?1690688442" rel="stylesheet">
-    <script src="/js/url.js?1690688442"></script>
-    <script src="/js/variant.js?1690688442"></script>
+    <link href="/css/fontawesome-all.min.css?1690992215" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1690992215" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1690992215" rel="stylesheet">
+    <link href="/css/auto-complete.css?1690992215" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1690992215" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1690992215" rel="stylesheet">
+    <link href="/css/fonts.css?1690992215" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1690992215" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1690992215" rel="stylesheet">
+    <link href="/css/theme-neon.css?1690992215" rel="stylesheet" id="variant-style">
+    <link href="/css/variant.css?1690992215" rel="stylesheet">
+    <link href="/css/print.css?1690992215" rel="stylesheet" media="print">
+    <link href="/css/ie.css?1690992215" rel="stylesheet">
+    <script src="/js/url.js?1690992215"></script>
+    <script src="/js/variant.js?1690992215"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -70,6 +70,11 @@
           <article class="default">
 <h1 id="alerts">Alerts</h1>
 
+<p>This is where alerts from various sources are aggregated. If you attempted to ping anything in your troubleshooting, you may already see a Suricata alert here. This is typically your launching off point for investigations. By default, it groups alerts by the <code>rule.name</code> and <code>event.module</code>, but other types of groupings can be selected. These can be useful for better understanding the data without looking at all the logs (similar to how looking at netflow data can be more efficient than looking at pcaps).</p>
+<p>Most everything is self-explanatory, but there are a few things worth pointing out. First, the bell icon acknowledges all alerts represented by the line it&rsquo;s on. If you have 200 pings grouped together and click the bell, they all disappear from this view. Second, the blue triangle escalates all the alerts represented by the line it&rsquo;s on into a <a href="./cases">case</a>. Some strategy is discussed on <a href="./hunt">the Hunt</a> page. It has a similar behavior to the bell otherwise. If you want to view acknowledged and escalated alerts, the Options dropdown at the top allows you to do so; you can also set up automatic refreshing, in case you&rsquo;re just monitoring. The &ldquo;Temporarily enable advanced interface features&rdquo; option provides you with some metrics and the ability to build your own custom queries.</p>
+<p>The last thing to point out is the left-click menu. Left-clicking on an alert will bring up a menu with a couple of filter options (Include, Exclude, and Only), the Drilldown option which lets you look at the full alerts, additional grouping options (Group By, New Group By), some copy methods in the Clipboard menu, and several links with the data you clicked on embedded in it in the Actions menu.</p>
+<p>Drilldown is likely the first thing you&rsquo;ll do as an analyst to dig into the alert and perform some initial triage. This turns the group into a filter, and by expanding each alert (the arrow on the left-most side of the alert) you can view every field and even group the alerts by any interesting fields. This is also where the left-click menu gets the most utility; since you can see every field, you can leverage the links for whatever data you want to investigate.</p>
+<p>If you need more granularity or flexibility, however, use <a href="./hunt">the Hunt</a> page.</p>
 
             <footer class="footline">
             </footer>
@@ -149,12 +154,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1690688442" defer></script>
-        <script src="/js/lunr/lunr.min.js?1690688442" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1690688442" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1690688442" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1690688442" defer></script>
-        <script src="/js/search.js?1690688442" defer></script>
+        <script src="/js/auto-complete.js?1690992215" defer></script>
+        <script src="/js/lunr/lunr.min.js?1690992215" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1690992215" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1690992215" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1690992215" defer></script>
+        <script src="/js/search.js?1690992215" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -241,8 +246,8 @@
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1690688442" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1690688442" defer></script>
-    <script src="/js/theme.js?1690688442" defer></script>
+    <script src="/js/clipboard.min.js?1690992215" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1690992215" defer></script>
+    <script src="/js/theme.js?1690992215" defer></script>
   </body>
 </html>

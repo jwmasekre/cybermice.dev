@@ -12,35 +12,37 @@
       <link>http://example.org/thelab/tools/overview/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/overview/index.html</guid>
-      <description></description>
+      <description>The Overview tab is a customizable page that gives a very brief overview of Security Onion. It indicates the location of Help, a Cheatsheet, and free (and paid) Training.
+There is little else worth discussing on this page, but it can be modified to better fit the environment you&amp;rsquo;re in; follow the link under Customize this Space.</description>
     </item>
     <item>
       <title>Alerts</title>
       <link>http://example.org/thelab/tools/alerts/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/alerts/index.html</guid>
-      <description></description>
+      <description>This is where alerts from various sources are aggregated. If you attempted to ping anything in your troubleshooting, you may already see a Suricata alert here. This is typically your launching off point for investigations. By default, it groups alerts by the rule.name and event.module, but other types of groupings can be selected. These can be useful for better understanding the data without looking at all the logs (similar to how looking at netflow data can be more efficient than looking at pcaps).</description>
     </item>
     <item>
       <title>Dashboards</title>
       <link>http://example.org/thelab/tools/dashboards/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/dashboards/index.html</guid>
-      <description></description>
+      <description>Dashboards by default has some interesting graphs and metrics, and gives some examples of viewing options for groupby, such as bar graphs and pie charts. Events are also available from this page. More details on Base Metrics, Group Metrics and Events are on the Hunt page.</description>
     </item>
     <item>
       <title>Hunt</title>
       <link>http://example.org/thelab/tools/hunt/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/hunt/index.html</guid>
-      <description></description>
+      <description>The Hunt page gives you significantly more control over the presentation of alert data, and also opens up access to the data that the alerts are generated from. Typically, you arrive at the Hunt page via the Action menu via Alerts, but you can start here if you know what you&amp;rsquo;re looking for, or even just are familiar with the Onion Query Language (OQL). To see this in action (and get a good idea of what types of data are available to you), you can change the query to * | groupby event.</description>
     </item>
     <item>
       <title>Cases</title>
       <link>http://example.org/thelab/tools/cases/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/cases/index.html</guid>
-      <description></description>
+      <description>This is where you can view all cases that were escalated to via Alerts and Hunt, as well as creating new ones from scratch. To access the case, click the binoculars icon on the left of the line.
+Inside of the case you have 5 tabs: Comments, Attachments, Observables, Events, and History. Comments are used to document any observations, recommendations, or any other notes that may be relevant that aren&amp;rsquo;t covered by the other tabs</description>
     </item>
     <item>
       <title>PCAP</title>
