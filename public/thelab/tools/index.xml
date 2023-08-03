@@ -49,77 +49,80 @@ Inside of the case you have 5 tabs: Comments, Attachments, Observables, Events, 
       <link>http://example.org/thelab/tools/pcap/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/pcap/index.html</guid>
-      <description></description>
+      <description>This page has all the packet captures Cartographer has carved out for analysts. Packet captures are stored on whatever devices are sensor nodes (in our example, the standalone is the sensor, since it contains all the components), filling up as much space as it can before rolling over and being overwritten. Analysts can query against the captures on the sensors to pull specific data, making PCAP analysis much more expedient.</description>
     </item>
     <item>
       <title>Grid</title>
       <link>http://example.org/thelab/tools/grid/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/grid/index.html</guid>
-      <description></description>
+      <description>This page is largely uninteresting for the purposes of the lab. In distributed instances, this would return all the different nodes and report on their status. The only important part of Grid from our view is the Container Status section; if a component is down or unhealthy, you can pivot to Hunt to diagnose the problem from here instead of ssh&amp;rsquo;ing into the vm and doing it through the CLI.</description>
     </item>
     <item>
       <title>Downloads</title>
       <link>http://example.org/thelab/tools/downloads/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/downloads/index.html</guid>
-      <description></description>
+      <description>Security Onion 2.4 has migrated the multiple toolsets for endpoint monitoring into the Elastic Agent. The Downloads page is the source for installer files. As long as the endpoint is properly added to the firewall rules (see Administration), installation is as simple as running the executable. Once installed, the agents and the devices they run on can be viewed and managed via Elastic Fleet and queried for data via Osquery Manager.</description>
     </item>
     <item>
       <title>Administration</title>
       <link>http://example.org/thelab/tools/administration/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/administration/index.html</guid>
-      <description></description>
+      <description>Administration is a dropdown of 4 different pages: Users, Grid Members, Configuration, and License Key.
+Users The Users menu is for managing all users that can access the Security Onion in some way. The 5 types of roles for users are Analyst, Auditor, Limited Analyst, Limited Auditor, and Superuser. Superusers have full access to everything. Analysts also have full access, and for our purposes are equivalent to Superusers. Limited Analysts do not have access to other users&amp;rsquo; PCAP jobs or to view other users.</description>
     </item>
     <item>
       <title>Kibana</title>
       <link>http://example.org/thelab/tools/kibana/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/kibana/index.html</guid>
-      <description></description>
+      <description>Kibana is the frontend of the ELK stack&amp;ndash; Elasticsearch, Logstash, and Kibana. Security Onion ships all of its logs to the ELK stack, so Kibana is very useful for exploring the data in a more thorough way than is possible in the Hunt interface. It also is significantly more customizable, though the default dashboards are very functional and easy to use.
+We won&amp;rsquo;t go into a deep dive here, but the best way to learn what all is available to you is to explore the Navigation panel that is built-in to the Security Onion default dashboard.</description>
     </item>
     <item>
       <title>Elastic Fleet</title>
       <link>http://example.org/thelab/tools/elasticfleet/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/elasticfleet/index.html</guid>
-      <description></description>
+      <description>This page contains every device that has an Elastic Agent on it. By default, the security onion has an agent, as well as the docker image that runs the fleet.
+If the elastic agent is installed on an endpoint, they will also show up here. By default, the are assigned the endpoints-initial policy, which can later be changed. Policies can be added and edited in the Agent Policies tab. The default policy is sufficient for getting appropriate logs to the ELK stack.</description>
     </item>
     <item>
       <title>Osquery Manager</title>
       <link>http://example.org/thelab/tools/osquerymanager/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/osquerymanager/index.html</guid>
-      <description></description>
+      <description>The Osquery Manager is a centralized location for launching Osquery queries against endpoints with the Elastic Agent. Osquery is used to retrieve current information about devices reporting to Security Onion, such as currently running processes or OS version. Some default queries can be generated on this page.</description>
     </item>
     <item>
       <title>InfluxDB</title>
       <link>http://example.org/thelab/tools/influxdb/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/influxdb/index.html</guid>
-      <description></description>
+      <description>InfluxDB is a monitor for the Security Onion nodes. It gives a good idea of current usage, and will alert on suspected issues. For the most part, as long as nothing is red, you&amp;rsquo;re good; Low PCAP retention will go away as more traffic flows, and Low Traffic Volume is normal for a low-activity network such as this. Our Security Onion is a bit light on memory, so that will probably be pretty high in utilization as well.</description>
     </item>
     <item>
       <title>CyberChef</title>
       <link>http://example.org/thelab/tools/cyberchef/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/cyberchef/index.html</guid>
-      <description></description>
+      <description>Cyberchef has an incredibly vast suite of operations for manipulating data. It&amp;rsquo;s publicly available, but Security Onion bundles one in just in case analysts don&amp;rsquo;t have an internet connection. The best way to learn CyberChef is to explore the operations and participate in capture-the-flags that incorporate data manipulation (such as base64 encoding, ROT13 encoding, looking at hexdumps, etc.).</description>
     </item>
     <item>
       <title>Playbook</title>
       <link>http://example.org/thelab/tools/playbook/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/playbook/index.html</guid>
-      <description></description>
+      <description>Playbook has (as of time of writing) over 2000 detection playbooks built-in to the Security Onion. Detection playbooks are a combination of Sigma rules and actions to take upon a match. By default, all playbooks shipped with Security Onion are in a Draft status; to enable them, check all of them (using the top left check) and click a three-dot menu button on the right of one that&amp;rsquo;s highlighted, mouse over status and click Active.</description>
     </item>
     <item>
       <title>Navigator</title>
       <link>http://example.org/thelab/tools/navigator/index.html</link>
       <pubDate>Sat, 29 Jul 2023 22:28:01 -0500</pubDate>
       <guid>http://example.org/thelab/tools/navigator/index.html</guid>
-      <description></description>
+      <description>The MITRE ATT&amp;amp;CK Navigator is a graphical tool for mapping out content across the MITRE ATT&amp;amp;CK matrix. This can be useful for identifying what aspects of the matrix an attack has covered (potentially highlighting places to investigate), map out security coverage to identify weak points or attack surfaces to address, or, from an offensive perspective, generate ideas for attacks or security bypasses.</description>
     </item>
   </channel>
 </rss>

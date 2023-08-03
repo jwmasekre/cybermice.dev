@@ -7,20 +7,20 @@
     <meta name="generator" content="Relearn 5.12.6+tip">
     <meta name="description" content="">
     <title>PCAP :: cybermice</title>
-    <link href="/images/favicon.png?1690992215" rel="icon" type="image/png">
+    <link href="/images/favicon.png?1691025647" rel="icon" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1690992215" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1690992215" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1690992215" rel="stylesheet">
-    <link href="/css/auto-complete.css?1690992215" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1690992215" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1690992215" rel="stylesheet">
-    <link href="/css/fonts.css?1690992215" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1690992215" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1690992215" rel="stylesheet">
-    <link href="/css/theme-neon.css?1690992215" rel="stylesheet" id="variant-style">
-    <link href="/css/variant.css?1690992215" rel="stylesheet">
-    <link href="/css/print.css?1690992215" rel="stylesheet" media="print">
-    <link href="/css/ie.css?1690992215" rel="stylesheet">
-    <script src="/js/url.js?1690992215"></script>
-    <script src="/js/variant.js?1690992215"></script>
+    <link href="/css/fontawesome-all.min.css?1691025647" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1691025647" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1691025647" rel="stylesheet">
+    <link href="/css/auto-complete.css?1691025647" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1691025647" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1691025647" rel="stylesheet">
+    <link href="/css/fonts.css?1691025647" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1691025647" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1691025647" rel="stylesheet">
+    <link href="/css/theme-neon.css?1691025647" rel="stylesheet" id="variant-style">
+    <link href="/css/variant.css?1691025647" rel="stylesheet">
+    <link href="/css/print.css?1691025647" rel="stylesheet" media="print">
+    <link href="/css/ie.css?1691025647" rel="stylesheet">
+    <script src="/js/url.js?1691025647"></script>
+    <script src="/js/variant.js?1691025647"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -70,6 +70,8 @@
           <article class="default">
 <h1 id="pcap">PCAP</h1>
 
+<p>This page has all the packet captures Cartographer has carved out for analysts. Packet captures are stored on whatever devices are sensor nodes (in our example, the standalone is the sensor, since it contains all the components), filling up as much space as it can before rolling over and being overwritten. Analysts can query against the captures on the sensors to pull specific data, making PCAP analysis much more expedient.</p>
+<p>The plus button at the top of the page can be used to carve out PCAPS. This menu will retain whatever previous settings were used. The name of the sensor must be included in order to pull PCAP data (for our setup, this is just <code>securityonion</code> unless you chose a different name for the standalone). PCAPs can be imported on the sensor, which will output a UUID for reference, and you can use this to carve out a PCAP from another source. You can also define the source IP/port, destination IP/port, and the start and end times. Once the job has completed, this pcap is available to every analyst with the appropriate permissions to both view (the binoculars icon) and download (inside the view menu), as well as ship to the internal CyberChef instance for data manipulation and analysis (also in the view menu).</p>
 
             <footer class="footline">
             </footer>
@@ -149,12 +151,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1690992215" defer></script>
-        <script src="/js/lunr/lunr.min.js?1690992215" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1690992215" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1690992215" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1690992215" defer></script>
-        <script src="/js/search.js?1690992215" defer></script>
+        <script src="/js/auto-complete.js?1691025647" defer></script>
+        <script src="/js/lunr/lunr.min.js?1691025647" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1691025647" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1691025647" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1691025647" defer></script>
+        <script src="/js/search.js?1691025647" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -241,8 +243,8 @@
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1690992215" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1690992215" defer></script>
-    <script src="/js/theme.js?1690992215" defer></script>
+    <script src="/js/clipboard.min.js?1691025647" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1691025647" defer></script>
+    <script src="/js/theme.js?1691025647" defer></script>
   </body>
 </html>
