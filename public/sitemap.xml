@@ -5,6 +5,10 @@
     <lastmod>2023-07-29T22:28:01-05:00</lastmod>
   </url>
   <url>
+    <loc>http://example.org/thelab/scenarios/setup/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
     <loc>http://example.org/contributions/index.html</loc>
   </url>
   <url>
@@ -16,11 +20,11 @@
     <lastmod>2023-07-29T11:36:00-05:00</lastmod>
   </url>
   <url>
-    <loc>http://example.org/guides/osint/index.html</loc>
-    <lastmod>2023-07-29T11:36:00-05:00</lastmod>
+    <loc>http://example.org/thelab/tools/alerts/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
   </url>
   <url>
-    <loc>http://example.org/thelab/tools/alerts/index.html</loc>
+    <loc>http://example.org/thelab/scenarios/scenario1/index.html</loc>
     <lastmod>2023-07-29T22:28:01-05:00</lastmod>
   </url>
   <url>
@@ -28,19 +32,11 @@
     <lastmod>2023-07-29T11:36:00-05:00</lastmod>
   </url>
   <url>
-    <loc>http://example.org/thelab/setup/index.html</loc>
-    <lastmod>2023-07-24T16:04:01-05:00</lastmod>
-  </url>
-  <url>
     <loc>http://example.org/thelab/setup/design/index.html</loc>
     <lastmod>2023-05-08T17:27:12-05:00</lastmod>
   </url>
   <url>
     <loc>http://example.org/thelab/tools/dashboards/index.html</loc>
-    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://example.org/thelab/tools/index.html</loc>
     <lastmod>2023-07-29T22:28:01-05:00</lastmod>
   </url>
   <url>
@@ -126,6 +122,22 @@
   <url>
     <loc>http://example.org/thelab/tools/navigator/index.html</loc>
     <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/setup/index.html</loc>
+    <lastmod>2023-07-24T16:04:01-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/tools/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/thelab/scenarios/index.html</loc>
+    <lastmod>2023-07-29T22:28:01-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://example.org/guides/osint/index.html</loc>
+    <lastmod>2023-07-29T11:36:00-05:00</lastmod>
   </url>
   <url>
     <loc>http://example.org/categories/index.html</loc>

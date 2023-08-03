@@ -49,3 +49,4 @@ This will take a bit, but once it finishes you should be able to connect to it v
     * Wait for everything to come up, or if there's an error, proceed to the section that address that specific error.
 2. Attempt to ping the host workstation with `ping 10.0.0.2`.
     * If you can ping 10.0.0.250, then you probably need to add a static route to your device. For windows, in an elevated command prompt: `route add 10.0.0.0 mask 255.255.255.248 10.0.0.254`
+    

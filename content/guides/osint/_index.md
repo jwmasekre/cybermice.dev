@@ -1,7 +1,7 @@
 +++
 archetype = "chapter"
 title = "OSINT"
-weight = 3.1
+weight = 310
 +++
 
 OSINT specific guides
