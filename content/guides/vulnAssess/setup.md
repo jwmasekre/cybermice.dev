@@ -8,7 +8,7 @@ This is a short walkthrough for preparing for the Vulnerability Assessment & Rep
 
 ### Kali
 
-You should have already setup Kali from the [Kali block](../../../thelab/creating_the_vms/#kali). There is one small change, however, and that's changing the network adapter:
+You should have already setup Kali from the [Kali block](../../../thelab/setup/creating_the_vms/#kali). There is one small change, however, and that's changing the network adapter:
 1. Open VMWare
 2. Click on your Kali VM
 3. Edit virtual machine settings
@@ -19,7 +19,7 @@ You should have already setup Kali from the [Kali block](../../../thelab/creatin
 8. Type `nikto -Version` to ensure your installed nikto tool is current (2.5.0 at the time of this writing)
 9. If it's not up to date, github it. 
 
-**NOTE** Don't forget to change this setting back if you're using Kali for [The Lab](../../../thelab/_index.md).
+**NOTE** Don't forget to change this setting back if you're using Kali for [The Lab](../../../thelab/).
 
 ### Kioptrix
 
@@ -37,7 +37,7 @@ You should have already setup Kali from the [Kali block](../../../thelab/creatin
 11. Username: `john` password: `TwoCows2`
 12. Type `ping -c 1 8.8.8.8` and to check you have a working IP address
 
-    ![Kioptrix IP address](/images/kioIP.png)
+    ![Kioptrix IP address](../images/kioIP.png)
 
 ### Nessus
 
@@ -49,7 +49,7 @@ You should have already setup Kali from the [Kali block](../../../thelab/creatin
 6. Type `sudo dpkg -i Nessus` and tab to autocomplete the file
 7. Refer to the output for the next command
 
-    ![Instructions to start and run Nessus](/images/nessusIns.png)
+    ![Instructions to start and run Nessus](../images/nessusIns.png)
     
 8. Type `/bin/systemctl start nessusd.service`
 9. Go to your browser and type in `https://kali:8834` or whatever the previous output statement referred
